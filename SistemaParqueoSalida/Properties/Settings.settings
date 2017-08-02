@@ -9,29 +9,17 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost;Initial Catalog=SistemaParqueo;User ID=sa;Password=12345678;Encrypt=False;Column Encryption Setting=Disabled</Value>
     </Setting>
-    <Setting Name="ByPassLoopSalida" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="ByPassAdam" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="AdamIp" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.0.0.12</Value>
-    </Setting>
-    <Setting Name="AdamPort" Type="System.String" Scope="User">
-      <Value Profile="(Default)">502</Value>
-    </Setting>
-    <Setting Name="EstacionNombre" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Nombre Estación</Value>
-    </Setting>
-    <Setting Name="EstacionNumero" Type="System.String" Scope="User">
-      <Value Profile="(Default)">01</Value>
-    </Setting>
-    <Setting Name="DefaultPrinter" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="idUsuario" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="userName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SuperUserPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LEAPARKING</Value>
+    </Setting>
+    <Setting Name="Estacion" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

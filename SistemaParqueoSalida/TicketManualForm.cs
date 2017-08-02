@@ -21,21 +21,31 @@ namespace SistemaParqueoSalida
         private void TicketManualForm_Load(object sender, EventArgs e)
         {
             //SendKeys.Send("{TAB}");
+            Program.Evento = 0;
             fechaEntrada_dtp.Focus();
+            lblDuracionTotal.Text = "0Hr 0Min";
             fechaEntrada_dtp.Value = DateTime.Now;
 
             fechaActual_dtp.Value = DateTime.Now;
+            Program.Evento = 1;
+            
             
         }
 
         private void fechaEntrada_dtp_ValueChanged(object sender, EventArgs e)
-        {
-            CalculateTicketPrice();
+        {   if (Program.Evento == 1)
+            {
+                CalculateTicketPrice();
+            }
+            
         }
 
         private void fechaActual_dtp_ValueChanged(object sender, EventArgs e)
         {
-            CalculateTicketPrice();
+            if (Program.Evento == 1)
+            {
+                CalculateTicketPrice();
+            }
         }
 
         public void CalculateTicketPrice()

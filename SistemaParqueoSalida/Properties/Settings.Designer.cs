@@ -36,90 +36,6 @@ namespace SistemaParqueoSalida.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ByPassLoopSalida {
-            get {
-                return ((bool)(this["ByPassLoopSalida"]));
-            }
-            set {
-                this["ByPassLoopSalida"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ByPassAdam {
-            get {
-                return ((bool)(this["ByPassAdam"]));
-            }
-            set {
-                this["ByPassAdam"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.12")]
-        public string AdamIp {
-            get {
-                return ((string)(this["AdamIp"]));
-            }
-            set {
-                this["AdamIp"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("502")]
-        public string AdamPort {
-            get {
-                return ((string)(this["AdamPort"]));
-            }
-            set {
-                this["AdamPort"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Nombre Estación")]
-        public string EstacionNombre {
-            get {
-                return ((string)(this["EstacionNombre"]));
-            }
-            set {
-                this["EstacionNombre"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("01")]
-        public string EstacionNumero {
-            get {
-                return ((string)(this["EstacionNumero"]));
-            }
-            set {
-                this["EstacionNumero"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DefaultPrinter {
-            get {
-                return ((string)(this["DefaultPrinter"]));
-            }
-            set {
-                this["DefaultPrinter"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int idUsuario {
             get {
@@ -127,6 +43,42 @@ namespace SistemaParqueoSalida.Properties {
             }
             set {
                 this["idUsuario"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string userName {
+            get {
+                return ((string)(this["userName"]));
+            }
+            set {
+                this["userName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LEAPARKING")]
+        public string SuperUserPassword {
+            get {
+                return ((string)(this["SuperUserPassword"]));
+            }
+            set {
+                this["SuperUserPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Estacion {
+            get {
+                return ((string)(this["Estacion"]));
+            }
+            set {
+                this["Estacion"] = value;
             }
         }
     }

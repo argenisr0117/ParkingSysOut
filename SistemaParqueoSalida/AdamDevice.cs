@@ -49,11 +49,11 @@ namespace SistemaParqueoSalida
             try
 
             {
-
+                Program.AdamOutputErrorRead = false;
                 if (adam6060.Modbus().ReadCoilStatus(outindex, 6, out outbuffer))
                 {
 
-                    Program.AdamInputErrorRead = false;
+                    
 
                     if (outbuffer[0])
                         Program.AdamOutput1 = true;
@@ -108,11 +108,11 @@ namespace SistemaParqueoSalida
             try
 
             {
-
+                Program.AdamInputErrorRead = false;
 
                 if (adam6060.Modbus().ReadCoilStatus(inindex, 6, out inbuffer))
                 {
-                    Program.AdamInputErrorRead = false;
+                    
                     if (inbuffer[0])
                         Program.AdamInput1 = false;
                     else

@@ -47,7 +47,7 @@
             // 
             // fechaActual_dtp
             // 
-            this.fechaActual_dtp.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.fechaActual_dtp.CustomFormat = "hh:mm tt dd/MM/yyyy ";
             this.fechaActual_dtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaActual_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaActual_dtp.Location = new System.Drawing.Point(186, 19);
@@ -153,7 +153,7 @@
             // 
             // fechaEntrada_dtp
             // 
-            this.fechaEntrada_dtp.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.fechaEntrada_dtp.CustomFormat = "hh:mm tt dd/MM/yyyy ";
             this.fechaEntrada_dtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaEntrada_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fechaEntrada_dtp.Location = new System.Drawing.Point(186, 66);
@@ -162,6 +162,7 @@
             this.fechaEntrada_dtp.Size = new System.Drawing.Size(202, 26);
             this.fechaEntrada_dtp.TabIndex = 0;
             this.fechaEntrada_dtp.Value = new System.DateTime(2017, 7, 27, 22, 31, 4, 0);
+            this.fechaEntrada_dtp.ValueChanged += new System.EventHandler(this.fechaEntrada_dtp_ValueChanged);
             // 
             // Devuelta_txt
             // 

@@ -110,6 +110,7 @@
             this.EntradaSalida_button.TabIndex = 12;
             this.EntradaSalida_button.Text = "ENTRADAS/SALIDAS";
             this.EntradaSalida_button.UseVisualStyleBackColor = false;
+            this.EntradaSalida_button.Click += new System.EventHandler(this.EntradaSalida_button_Click_1);
             // 
             // adamPort_txt
             // 

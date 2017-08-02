@@ -13,8 +13,7 @@ namespace SistemaParqueoSalida
 {
     public partial class EntradasSalidasAdamForm : Form
     {
-        AdamSocket adam6060 = new AdamSocket();
-        AdamDevice adam_func = new AdamDevice();
+        
         public EntradasSalidasAdamForm()
         {
             InitializeComponent();
@@ -29,7 +28,6 @@ namespace SistemaParqueoSalida
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-            adam_func.AdamInputRead(adam6060);
 
             if (Program.AdamInput1)
             {
@@ -97,7 +95,7 @@ namespace SistemaParqueoSalida
                 EntradaSalida_tooltip.SetToolTip(input6Adam_pic, "OFF");
             }
 
-            adam_func.AdamOutputRead(adam6060);
+            
 
             if (Program.AdamOutput1)
             {
@@ -168,39 +166,43 @@ namespace SistemaParqueoSalida
             timer1.Enabled = true;
         }
 
-        private void output1Adam_pic_Click(object sender, EventArgs e)
+        
+
+        private void output1Adam_pic_Click_1(object sender, EventArgs e)
         {
             if (Program.AdamOutput1)
             {
-                adam_func.AdamWrite(adam6060, 17, false);
+                Program.adam_func.AdamWrite(Program.adam6060, 17, false);
             }
             else
             {
-                adam_func.AdamWrite(adam6060, 17, true);
+                Program.adam_func.AdamWrite(Program.adam6060, 17, true);
             }
         }
 
-        private void output2Adam_pic_Click(object sender, EventArgs e)
+        private void output2Adam_pic_Click_1(object sender, EventArgs e)
         {
             if (Program.AdamOutput2)
             {
-                adam_func.AdamWrite(adam6060, 18, false);
+                Program.adam_func.AdamWrite(Program.adam6060, 18, false);
             }
             else
             {
-                adam_func.AdamWrite(adam6060, 18, true);
+                Program.adam_func.AdamWrite(Program.adam6060, 18, true);
             }
         }
+
+        
 
         private void output3Adam_pic_Click(object sender, EventArgs e)
         {
             if (Program.AdamOutput3)
             {
-                adam_func.AdamWrite(adam6060, 19, false);
+                Program.adam_func.AdamWrite(Program.adam6060, 19, false);
             }
             else
             {
-                adam_func.AdamWrite(adam6060, 19, true);
+                Program.adam_func.AdamWrite(Program.adam6060, 19, true);
             }
         }
 
@@ -208,11 +210,11 @@ namespace SistemaParqueoSalida
         {
             if (Program.AdamOutput4)
             {
-                adam_func.AdamWrite(adam6060, 20, false);
+                Program.adam_func.AdamWrite(Program.adam6060, 20, false);
             }
             else
             {
-                adam_func.AdamWrite(adam6060, 20, true);
+                Program.adam_func.AdamWrite(Program.adam6060, 20, true);
             }
         }
 
@@ -220,11 +222,11 @@ namespace SistemaParqueoSalida
         {
             if (Program.AdamOutput5)
             {
-                adam_func.AdamWrite(adam6060, 21, false);
+                Program.adam_func.AdamWrite(Program.adam6060, 21, false);
             }
             else
             {
-                adam_func.AdamWrite(adam6060, 21, true);
+                Program.adam_func.AdamWrite(Program.adam6060, 21, true);
             }
         }
 
@@ -232,11 +234,11 @@ namespace SistemaParqueoSalida
         {
             if (Program.AdamOutput6)
             {
-                adam_func.AdamWrite(adam6060, 22, false);
+                Program.adam_func.AdamWrite(Program.adam6060, 22, false);
             }
             else
             {
-                adam_func.AdamWrite(adam6060, 22, true);
+                Program.adam_func.AdamWrite(Program.adam6060, 22, true);
             }
         }
     }

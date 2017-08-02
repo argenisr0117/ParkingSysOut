@@ -104,16 +104,25 @@
     <Compile Include="estacionSalidaMainForm.Designer.cs">
       <DependentUpon>estacionSalidaMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PermisosUsuario.cs" />
     <Compile Include="PrinterStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="StatusEntrada.cs" />
+    <Compile Include="SuperUserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperUserLoginForm.Designer.cs">
+      <DependentUpon>SuperUserLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TicketManualForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +130,7 @@
       <DependentUpon>TicketManualForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateTicket.cs" />
+    <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="CobroAutomaticoPopUpForm.resx">
       <DependentUpon>CobroAutomaticoPopUpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +159,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SuperUserLoginForm.resx">
+      <DependentUpon>SuperUserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TicketManualForm.resx">
       <DependentUpon>TicketManualForm.cs</DependentUpon>
     </EmbeddedResource>

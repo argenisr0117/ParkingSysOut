@@ -134,7 +134,7 @@ namespace SistemaParqueoSalida
             u.monto = monto;
             u.tiempo = tiempo;
             u.idUsuario = idUsuario;
-            u.estacionSal = Properties.Settings.Default.EstacionNumero;
+            u.estacionSal = Program.EstacionNumero;
             u.UpdateTicketToDB();
         }
     }
