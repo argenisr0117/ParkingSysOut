@@ -32,6 +32,7 @@ namespace SistemaParqueoSalida
             string[] mensaje = L.UserLogin();
             if (mensaje[0] == "1")
             {
+                Program.userLoggedIn = true;
                 Program.UserId = mensaje[1].ToString();
                 Program.UserName = Usuario_txt.Text;
                 Properties.Settings.Default.userName = Program.UserName;
@@ -53,6 +54,8 @@ namespace SistemaParqueoSalida
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            panel1.Location = new Point(this.ClientSize.Width / 2 - panel1.Size.Width / 2, this.ClientSize.Height / 2 - panel1.Size.Height / 2);
+            panel1.Anchor = AnchorStyles.None;
             Settings S = new Settings();
             S.EntSal = "sal";
             S.estacionNumero = Properties.Settings.Default.Estacion;
@@ -72,6 +75,12 @@ namespace SistemaParqueoSalida
             {
                 Login();
             }
+        }
+
+        private void cONFIGURACIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SuperUserLoginForm form = new SuperUserLoginForm();
+            form.ShowDialog();
         }
     }
 }

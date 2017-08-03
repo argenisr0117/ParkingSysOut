@@ -86,6 +86,12 @@
     <Compile Include="configuracionTiempoPrecioForm.Designer.cs">
       <DependentUpon>configuracionTiempoPrecioForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\textbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controles\textbox.Designer.cs">
+      <DependentUpon>textbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\textboxN.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -26,6 +26,7 @@ namespace SistemaParqueoSalida
         public static string UserId;
         public static string UserName;
         public static string TipoUsuario;
+        public static bool userLoggedIn;
 
         public static AdamSocket adam6060 = new AdamSocket();
         public static AdamDevice adam_func = new AdamDevice();

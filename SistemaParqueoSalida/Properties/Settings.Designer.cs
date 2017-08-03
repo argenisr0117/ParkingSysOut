@@ -60,18 +60,6 @@ namespace SistemaParqueoSalida.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("LEAPARKING")]
-        public string SuperUserPassword {
-            get {
-                return ((string)(this["SuperUserPassword"]));
-            }
-            set {
-                this["SuperUserPassword"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Estacion {
             get {

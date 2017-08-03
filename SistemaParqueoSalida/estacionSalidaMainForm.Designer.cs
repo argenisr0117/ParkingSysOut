@@ -64,12 +64,14 @@
             this.readStatusSalida_timer = new System.Windows.Forms.Timer(this.components);
             this.disableEnter_timer = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tipoUsuario_lbl = new System.Windows.Forms.Label();
+            this.receso_btn = new System.Windows.Forms.Button();
+            this.cerrarSesion_btn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.usuario_lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cerrarSesion_btn = new System.Windows.Forms.Button();
-            this.receso_btn = new System.Windows.Forms.Button();
-            this.tipoUsuario_lbl = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBasedatos_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusVehiculoEntrada_pic)).BeginInit();
@@ -81,6 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.statusPrinterSalida_pic)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,7 +99,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.statusPrinter_entrada_pic);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 91);
+            this.panel1.Location = new System.Drawing.Point(31, 16);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 216);
             this.panel1.TabIndex = 1;
@@ -190,7 +194,7 @@
             this.menúToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(698, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1111, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -260,7 +264,7 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.statusPrinterSalida_pic);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(12, 313);
+            this.panel2.Location = new System.Drawing.Point(31, 248);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(295, 153);
             this.panel2.TabIndex = 2;
@@ -324,7 +328,7 @@
             this.panel3.Controls.Add(this.btnTicketP);
             this.panel3.Controls.Add(this.txtLecturaTicket);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Location = new System.Drawing.Point(334, 91);
+            this.panel3.Location = new System.Drawing.Point(367, 16);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(340, 202);
             this.panel3.TabIndex = 3;
@@ -400,24 +404,64 @@
             // 
             // panel4
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.tipoUsuario_lbl);
             this.panel4.Controls.Add(this.receso_btn);
             this.panel4.Controls.Add(this.cerrarSesion_btn);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.usuario_lbl);
             this.panel4.Controls.Add(this.label10);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 24);
+            this.panel4.Location = new System.Drawing.Point(141, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(698, 30);
+            this.panel4.Size = new System.Drawing.Size(798, 50);
             this.panel4.TabIndex = 4;
+            // 
+            // tipoUsuario_lbl
+            // 
+            this.tipoUsuario_lbl.AutoSize = true;
+            this.tipoUsuario_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoUsuario_lbl.Location = new System.Drawing.Point(366, 17);
+            this.tipoUsuario_lbl.Name = "tipoUsuario_lbl";
+            this.tipoUsuario_lbl.Size = new System.Drawing.Size(11, 13);
+            this.tipoUsuario_lbl.TabIndex = 9;
+            this.tipoUsuario_lbl.Text = "t";
+            // 
+            // receso_btn
+            // 
+            this.receso_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receso_btn.Location = new System.Drawing.Point(446, 3);
+            this.receso_btn.Name = "receso_btn";
+            this.receso_btn.Size = new System.Drawing.Size(95, 39);
+            this.receso_btn.TabIndex = 8;
+            this.receso_btn.Text = "Receso";
+            this.receso_btn.UseVisualStyleBackColor = true;
+            this.receso_btn.Click += new System.EventHandler(this.receso_btn_Click);
+            // 
+            // cerrarSesion_btn
+            // 
+            this.cerrarSesion_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cerrarSesion_btn.Location = new System.Drawing.Point(655, 3);
+            this.cerrarSesion_btn.Name = "cerrarSesion_btn";
+            this.cerrarSesion_btn.Size = new System.Drawing.Size(96, 39);
+            this.cerrarSesion_btn.TabIndex = 7;
+            this.cerrarSesion_btn.Text = "Cerrar Sesión";
+            this.cerrarSesion_btn.UseVisualStyleBackColor = true;
+            this.cerrarSesion_btn.Click += new System.EventHandler(this.cerrarSesion_btn_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(265, 17);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(104, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "TIPO USUARIO: ";
             // 
             // usuario_lbl
             // 
             this.usuario_lbl.AutoSize = true;
             this.usuario_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuario_lbl.Location = new System.Drawing.Point(87, 4);
+            this.usuario_lbl.Location = new System.Drawing.Point(106, 17);
             this.usuario_lbl.Name = "usuario_lbl";
             this.usuario_lbl.Size = new System.Drawing.Size(14, 13);
             this.usuario_lbl.TabIndex = 5;
@@ -427,72 +471,53 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 4);
+            this.label10.Location = new System.Drawing.Point(29, 17);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "USUARIO: ";
             // 
-            // label11
+            // panel5
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(228, 4);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "TIPO USUARIO: ";
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel5.Controls.Add(this.panel3);
+            this.panel5.Controls.Add(this.panel1);
+            this.panel5.Controls.Add(this.panel2);
+            this.panel5.Location = new System.Drawing.Point(217, 107);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(722, 404);
+            this.panel5.TabIndex = 5;
             // 
-            // cerrarSesion_btn
+            // panel6
             // 
-            this.cerrarSesion_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cerrarSesion_btn.Location = new System.Drawing.Point(576, 1);
-            this.cerrarSesion_btn.Name = "cerrarSesion_btn";
-            this.cerrarSesion_btn.Size = new System.Drawing.Size(96, 23);
-            this.cerrarSesion_btn.TabIndex = 7;
-            this.cerrarSesion_btn.Text = "Cerrar Sesión";
-            this.cerrarSesion_btn.UseVisualStyleBackColor = true;
-            this.cerrarSesion_btn.Click += new System.EventHandler(this.cerrarSesion_btn_Click);
-            // 
-            // receso_btn
-            // 
-            this.receso_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.receso_btn.Location = new System.Drawing.Point(463, 1);
-            this.receso_btn.Name = "receso_btn";
-            this.receso_btn.Size = new System.Drawing.Size(75, 23);
-            this.receso_btn.TabIndex = 8;
-            this.receso_btn.Text = "Receso";
-            this.receso_btn.UseVisualStyleBackColor = true;
-            this.receso_btn.Click += new System.EventHandler(this.receso_btn_Click);
-            // 
-            // tipoUsuario_lbl
-            // 
-            this.tipoUsuario_lbl.AutoSize = true;
-            this.tipoUsuario_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipoUsuario_lbl.Location = new System.Drawing.Point(329, 4);
-            this.tipoUsuario_lbl.Name = "tipoUsuario_lbl";
-            this.tipoUsuario_lbl.Size = new System.Drawing.Size(11, 13);
-            this.tipoUsuario_lbl.TabIndex = 9;
-            this.tipoUsuario_lbl.Text = "t";
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.panel4);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 24);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1111, 60);
+            this.panel6.TabIndex = 6;
             // 
             // estacionSalidaMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(698, 514);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1111, 514);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "estacionSalidaMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ESTACION SALIDA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.estacionSalidaMainForm_FormClosing);
             this.Load += new System.EventHandler(this.estacionSalidaMainForm_Load);
+            this.Shown += new System.EventHandler(this.estacionSalidaMainForm_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBasedatos_pic)).EndInit();
@@ -509,6 +534,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,6 +584,8 @@
         private System.Windows.Forms.Button receso_btn;
         private System.Windows.Forms.Button cerrarSesion_btn;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

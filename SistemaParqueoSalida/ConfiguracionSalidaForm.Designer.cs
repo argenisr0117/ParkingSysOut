@@ -29,18 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.estacionNombre_txt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.estacionNumero_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.EntradaSalida_button = new System.Windows.Forms.Button();
-            this.adamPort_txt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.baseDatosConexion_txt = new System.Windows.Forms.TextBox();
             this.labelBaseDatos = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.adamIp_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.byPassAdam_chbox = new System.Windows.Forms.CheckBox();
             this.byPassLoopSalida_chbox = new System.Windows.Forms.CheckBox();
@@ -55,19 +51,17 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.saveSettings_btn = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.estacionNombre_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.estacionNumero_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.adamIp_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.adamPort_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // estacionNombre_txt
-            // 
-            this.estacionNombre_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.estacionNombre_txt.Location = new System.Drawing.Point(127, 37);
-            this.estacionNombre_txt.Name = "estacionNombre_txt";
-            this.estacionNombre_txt.Size = new System.Drawing.Size(162, 20);
-            this.estacionNombre_txt.TabIndex = 7;
             // 
             // label11
             // 
@@ -77,14 +71,6 @@
             this.label11.Size = new System.Drawing.Size(117, 13);
             this.label11.TabIndex = 6;
             this.label11.Text = "NOMBRE ESTACIÓN: ";
-            // 
-            // estacionNumero_txt
-            // 
-            this.estacionNumero_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.estacionNumero_txt.Location = new System.Drawing.Point(127, 63);
-            this.estacionNumero_txt.Name = "estacionNumero_txt";
-            this.estacionNumero_txt.Size = new System.Drawing.Size(71, 20);
-            this.estacionNumero_txt.TabIndex = 5;
             // 
             // label6
             // 
@@ -112,18 +98,10 @@
             this.EntradaSalida_button.UseVisualStyleBackColor = false;
             this.EntradaSalida_button.Click += new System.EventHandler(this.EntradaSalida_button_Click_1);
             // 
-            // adamPort_txt
-            // 
-            this.adamPort_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.adamPort_txt.Location = new System.Drawing.Point(243, 37);
-            this.adamPort_txt.Name = "adamPort_txt";
-            this.adamPort_txt.Size = new System.Drawing.Size(55, 20);
-            this.adamPort_txt.TabIndex = 11;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 40);
+            this.label5.Location = new System.Drawing.Point(179, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 10;
@@ -169,18 +147,10 @@
             this.label10.TabIndex = 4;
             this.label10.Text = "BASE DE DATOS";
             // 
-            // adamIp_txt
-            // 
-            this.adamIp_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.adamIp_txt.Location = new System.Drawing.Point(34, 37);
-            this.adamIp_txt.Name = "adamIp_txt";
-            this.adamIp_txt.Size = new System.Drawing.Size(100, 20);
-            this.adamIp_txt.TabIndex = 9;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 40);
+            this.label4.Location = new System.Drawing.Point(5, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 8;
@@ -209,7 +179,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 66);
+            this.label7.Location = new System.Drawing.Point(44, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 2;
@@ -228,10 +198,10 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.EntradaSalida_button);
             this.panel2.Controls.Add(this.adamPort_txt);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.adamIp_txt);
+            this.panel2.Controls.Add(this.EntradaSalida_button);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.byPassAdam_chbox);
             this.panel2.Controls.Add(this.byPassLoopSalida_chbox);
@@ -273,9 +243,9 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.estacionNumero_txt);
             this.panel3.Controls.Add(this.estacionNombre_txt);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.estacionNumero_txt);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Location = new System.Drawing.Point(12, 12);
@@ -313,6 +283,46 @@
             this.saveSettings_btn.UseVisualStyleBackColor = false;
             this.saveSettings_btn.Click += new System.EventHandler(this.saveSettings_btn_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // estacionNombre_txt
+            // 
+            this.estacionNombre_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.estacionNombre_txt.Location = new System.Drawing.Point(127, 40);
+            this.estacionNombre_txt.Name = "estacionNombre_txt";
+            this.estacionNombre_txt.Size = new System.Drawing.Size(141, 20);
+            this.estacionNombre_txt.TabIndex = 7;
+            this.estacionNombre_txt.Validar = true;
+            // 
+            // estacionNumero_txt
+            // 
+            this.estacionNumero_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.estacionNumero_txt.Location = new System.Drawing.Point(127, 63);
+            this.estacionNumero_txt.Name = "estacionNumero_txt";
+            this.estacionNumero_txt.Size = new System.Drawing.Size(73, 20);
+            this.estacionNumero_txt.TabIndex = 8;
+            this.estacionNumero_txt.Validar = true;
+            // 
+            // adamIp_txt
+            // 
+            this.adamIp_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.adamIp_txt.Location = new System.Drawing.Point(34, 37);
+            this.adamIp_txt.Name = "adamIp_txt";
+            this.adamIp_txt.Size = new System.Drawing.Size(73, 20);
+            this.adamIp_txt.TabIndex = 13;
+            this.adamIp_txt.Validar = true;
+            // 
+            // adamPort_txt
+            // 
+            this.adamPort_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.adamPort_txt.Location = new System.Drawing.Point(243, 37);
+            this.adamPort_txt.Name = "adamPort_txt";
+            this.adamPort_txt.Size = new System.Drawing.Size(73, 20);
+            this.adamPort_txt.TabIndex = 14;
+            this.adamPort_txt.Validar = true;
+            // 
             // ConfiguracionSalidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,24 +346,20 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox estacionNombre_txt;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox estacionNumero_txt;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Button EntradaSalida_button;
-        private System.Windows.Forms.TextBox adamPort_txt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox baseDatosConexion_txt;
         private System.Windows.Forms.Label labelBaseDatos;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox adamIp_txt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox byPassAdam_chbox;
         private System.Windows.Forms.CheckBox byPassLoopSalida_chbox;
@@ -368,5 +374,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button saveSettings_btn;
+        private Controles.textbox estacionNumero_txt;
+        private Controles.textbox estacionNombre_txt;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Controles.textbox adamPort_txt;
+        private Controles.textbox adamIp_txt;
     }
 }

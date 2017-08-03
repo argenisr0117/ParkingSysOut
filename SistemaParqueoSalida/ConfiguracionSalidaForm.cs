@@ -20,6 +20,17 @@ namespace SistemaParqueoSalida
 
         private void ConfiguracionSalidaForm_Load(object sender, EventArgs e)
         {
+            if (Program.userLoggedIn)
+            {
+                estacionNumero_txt.Enabled = false;
+                //baseDatosConexion_txt.Enabled = false;
+            }
+            else
+            {
+                estacionNumero_txt.Enabled = true;
+                //baseDatosConexion_txt.Enabled = true;
+            }
+            TopMost = true;
             DataTable dt = new DataTable();
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
             {
@@ -83,49 +94,68 @@ namespace SistemaParqueoSalida
         }
         private void saveSettings_btn_Click(object sender, EventArgs e)
         {
-            Program.defaultprinter = printerList_cb.SelectedItem.ToString();
-            if (byPassLoopSalida_chbox.Checked)
+            try
             {
-                Program.byPassLoopSalida = true;
-            }
-            else
-            {
-                Program.byPassLoopSalida = false;
-            }
+                errorProvider1.Clear();
+                if (Utilidades.ValidarForm2(panel2, errorProvider1) == false)
+                {
+                    return;
+                }
+                if (Utilidades.ValidarForm2(panel3, errorProvider1) == false)
+                {
+                    return;
+                }
+                Program.defaultprinter = printerList_cb.SelectedItem.ToString();
+                if (byPassLoopSalida_chbox.Checked)
+                {
+                    Program.byPassLoopSalida = true;
+                }
+                else
+                {
+                    Program.byPassLoopSalida = false;
+                }
 
-            if (byPassAdam_chbox.Checked)
-            {
-                Program.byPassAdam = true;
+                if (byPassAdam_chbox.Checked)
+                {
+                    Program.byPassAdam = true;
+                }
+                else
+                {
+                    Program.byPassAdam = false;
+                }
+                Program.AdamIp = adamIp_txt.Text;
+                Program.AdamPort = Convert.ToInt16(adamPort_txt.Text);
+                Program.EstacionNombre = estacionNombre_txt.Text;
+                S.EntSal = "sal";
+                S.defaultprinter = Program.defaultprinter;
+                S.byPassloop = Program.byPassLoopSalida;
+                S.byPassBrazo = false;
+                S.byPassAdam = Program.byPassAdam;
+                S.adamIp = Program.AdamIp;
+                S.adamPort = Program.AdamPort;
+                S.estacionNombre = Program.EstacionNombre;
+                S.estacionNumero = estacionNumero_txt.Text;
+                S.estacionAnterior = Program.EstacionNumero;
+                Properties.Settings.Default.Estacion = Program.EstacionNumero;
+                bool mensaje = S.SaveSettings();
+                Program.EstacionNumero = estacionNumero_txt.Text;
+
+                
+                Properties.Settings.Default.Save();
+                if (mensaje)
+                {
+                    MessageBox.Show("Configuración Guardada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Configuración No fue guardada en base de datos", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                Program.byPassAdam = false;
+                MessageBox.Show(ex.Message);
             }
-            Program.AdamIp = adamIp_txt.Text;
-            Program.AdamPort = Convert.ToInt16( adamPort_txt.Text);
-            Program.EstacionNombre = estacionNombre_txt.Text;
-            S.EntSal = "sal";
-            S.defaultprinter = Program.defaultprinter;
-            S.byPassloop = Program.byPassLoopSalida;
-            S.byPassBrazo = false;
-            S.byPassAdam = Program.byPassAdam;
-            S.adamIp = Program.AdamIp;
-            S.adamPort = Program.AdamPort;
-            S.estacionNombre = Program.EstacionNombre;
-            S.estacionNumero = estacionNumero_txt.Text;
-            S.estacionAnterior = Program.EstacionNumero;
-            bool mensaje = S.SaveSettings();
-            Program.EstacionNumero = estacionNumero_txt.Text;
-            Properties.Settings.Default.Estacion = estacionNumero_txt.Text;
-            Properties.Settings.Default.Save();
-            if (mensaje)
-            {
-                MessageBox.Show("Configuración Guardada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Configuración No fue guardada en base de datos", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
            
         }
 

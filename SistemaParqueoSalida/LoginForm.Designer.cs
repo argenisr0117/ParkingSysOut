@@ -33,20 +33,26 @@
             this.Password_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.salir_btn = new System.Windows.Forms.Button();
             this.entrar_btn = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mENUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cONFIGURACIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Usuario_txt
             // 
             this.Usuario_txt.BackColor = System.Drawing.SystemColors.Info;
             this.Usuario_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Usuario_txt.Location = new System.Drawing.Point(90, 90);
+            this.Usuario_txt.Location = new System.Drawing.Point(80, 88);
             this.Usuario_txt.Multiline = true;
             this.Usuario_txt.Name = "Usuario_txt";
             this.Usuario_txt.Size = new System.Drawing.Size(186, 34);
@@ -57,7 +63,7 @@
             // 
             this.Password_txt.BackColor = System.Drawing.SystemColors.Info;
             this.Password_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password_txt.Location = new System.Drawing.Point(90, 140);
+            this.Password_txt.Location = new System.Drawing.Point(80, 138);
             this.Password_txt.Name = "Password_txt";
             this.Password_txt.Size = new System.Drawing.Size(186, 24);
             this.Password_txt.TabIndex = 1;
@@ -69,7 +75,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(0, 61);
+            this.label3.Location = new System.Drawing.Point(-10, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(308, 13);
             this.label3.TabIndex = 6;
@@ -80,7 +86,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(108, 21);
+            this.label4.Location = new System.Drawing.Point(100, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 29);
             this.label4.TabIndex = 7;
@@ -89,7 +95,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SistemaParqueoSalida.Properties.Resources.key;
-            this.pictureBox2.Location = new System.Drawing.Point(33, 130);
+            this.pictureBox2.Location = new System.Drawing.Point(23, 128);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 34);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -100,7 +106,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaParqueoSalida.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 90);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 88);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -119,7 +125,7 @@
             this.salir_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.salir_btn.Image = global::SistemaParqueoSalida.Properties.Resources.exit;
             this.salir_btn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.salir_btn.Location = new System.Drawing.Point(184, 199);
+            this.salir_btn.Location = new System.Drawing.Point(174, 197);
             this.salir_btn.Name = "salir_btn";
             this.salir_btn.Size = new System.Drawing.Size(72, 63);
             this.salir_btn.TabIndex = 5;
@@ -140,7 +146,7 @@
             this.entrar_btn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.entrar_btn.Image = global::SistemaParqueoSalida.Properties.Resources.forward;
             this.entrar_btn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.entrar_btn.Location = new System.Drawing.Point(53, 199);
+            this.entrar_btn.Location = new System.Drawing.Point(43, 197);
             this.entrar_btn.Name = "entrar_btn";
             this.entrar_btn.Size = new System.Drawing.Size(72, 63);
             this.entrar_btn.TabIndex = 4;
@@ -150,28 +156,71 @@
             this.entrar_btn.UseVisualStyleBackColor = false;
             this.entrar_btn.Click += new System.EventHandler(this.entrar_btn_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.Usuario_txt);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.Password_txt);
+            this.panel1.Controls.Add(this.entrar_btn);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.salir_btn);
+            this.panel1.Location = new System.Drawing.Point(263, 111);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(290, 293);
+            this.panel1.TabIndex = 10;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mENUToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(790, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mENUToolStripMenuItem
+            // 
+            this.mENUToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cONFIGURACIONToolStripMenuItem});
+            this.mENUToolStripMenuItem.Name = "mENUToolStripMenuItem";
+            this.mENUToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.mENUToolStripMenuItem.Text = "MENU";
+            // 
+            // cONFIGURACIONToolStripMenuItem
+            // 
+            this.cONFIGURACIONToolStripMenuItem.Image = global::SistemaParqueoSalida.Properties.Resources.configure;
+            this.cONFIGURACIONToolStripMenuItem.Name = "cONFIGURACIONToolStripMenuItem";
+            this.cONFIGURACIONToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.cONFIGURACIONToolStripMenuItem.Text = "CONFIGURACION";
+            this.cONFIGURACIONToolStripMenuItem.Click += new System.EventHandler(this.cONFIGURACIONToolStripMenuItem_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(308, 274);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.salir_btn);
-            this.Controls.Add(this.entrar_btn);
-            this.Controls.Add(this.Password_txt);
-            this.Controls.Add(this.Usuario_txt);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(790, 416);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +236,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mENUToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cONFIGURACIONToolStripMenuItem;
     }
 }

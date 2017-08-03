@@ -128,21 +128,19 @@ namespace SistemaParqueoSalida
 
         private void estacionSalidaMainForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                usuario_lbl.Text = Program.UserName + " - " + Program.UserId;
-                tipoUsuario_lbl.Text = Program.TipoUsuario;
-                readStatusEntrada_timer.Enabled = true;
-                readStatusEntrada_timer_Tick(1, e);
-                readStatusSalida_timer.Enabled = true;
-                readStatusSalida_timer_Tick(1, e);
-                getIfUserOnBreak();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-                    
+            panel5.Location = new Point(this.ClientSize.Width / 2 - panel5.Size.Width / 2, this.ClientSize.Height / 2 - panel5.Size.Height / 2);
+            panel5.Anchor = AnchorStyles.None;
+
+            panel4.Location = new Point(this.ClientSize.Width / 2 - panel4.Size.Width / 2);
+            panel4.Anchor = AnchorStyles.None;
+
+            readStatusEntrada_timer.Enabled = true;
+            readStatusEntrada_timer_Tick(1, e);
+            readStatusSalida_timer.Enabled = true;
+            readStatusSalida_timer_Tick(1, e);
+           
+          
+
         }
 
         public void getIfUserOnBreak()
@@ -181,7 +179,7 @@ namespace SistemaParqueoSalida
                 string mensaje = L.CloseUserSessionAfterLogin();
                 if (mensaje == "1")
                 {
-                    MessageBox.Show("Nueva Turno Creado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nuevo Turno Creado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -489,6 +487,7 @@ namespace SistemaParqueoSalida
                 if (MessageBox.Show("¿Desea Salir?", "Sistema de Control de Parqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     CerrarSesion();
+                    
                     this.Dispose();
                     this.Close();
                 }
@@ -507,6 +506,7 @@ namespace SistemaParqueoSalida
             string mensaje = L.UserOnBreak();
             if (mensaje == "1")
             {
+                Program.userLoggedIn = false;
                 this.Hide();
                 LoginForm form = new LoginForm();
                 form.ShowDialog();
@@ -531,6 +531,7 @@ namespace SistemaParqueoSalida
             string mensaje = L.CloseSession();
             if (mensaje == "1")
             {
+                Program.userLoggedIn = false;
                 this.Hide();
                 LoginForm form = new LoginForm();
                 form.ShowDialog();
@@ -540,6 +541,25 @@ namespace SistemaParqueoSalida
                 MessageBox.Show("No se pudo cerrar el turno del usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void estacionSalidaMainForm_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                usuario_lbl.Text = Program.UserName + " - " + Program.UserId;
+                tipoUsuario_lbl.Text = Program.TipoUsuario;
+                readStatusEntrada_timer.Enabled = true;
+                readStatusEntrada_timer_Tick(1, e);
+                readStatusSalida_timer.Enabled = true;
+                readStatusSalida_timer_Tick(1, e);
+                getIfUserOnBreak();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }   

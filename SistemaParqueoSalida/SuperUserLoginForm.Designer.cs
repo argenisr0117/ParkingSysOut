@@ -158,9 +158,12 @@
             this.Controls.Add(this.entrar_btn);
             this.Controls.Add(this.Password_txt);
             this.Controls.Add(this.Usuario_txt);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SuperUserLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SuperUserLoginForm";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -15,9 +15,6 @@
     <Setting Name="userName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="SuperUserPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">LEAPARKING</Value>
-    </Setting>
     <Setting Name="Estacion" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

@@ -117,6 +117,7 @@ namespace SistemaParqueoSalida
             Program.AdamPort = Convert.ToInt16(dt.Rows[0]["AdamPort"]);
             Program.EstacionNombre = dt.Rows[0]["EstacionNombre"].ToString();
             Program.EstacionNumero = dt.Rows[0]["EstacionNumero"].ToString();
+            Properties.Settings.Default.Estacion = Program.EstacionNumero;
             Program.SuperUserPass = dt.Rows[0]["SuperUserPass"].ToString();
         }
     }

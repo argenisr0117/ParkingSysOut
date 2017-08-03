@@ -19,7 +19,7 @@ namespace SistemaParqueoSalida
 
         private void entrar_btn_Click(object sender, EventArgs e)
         {
-            if(Password_txt.Text == Properties.Settings.Default.SuperUserPassword)
+            if(Password_txt.Text == Program.SuperUserPass)
             {
                 this.Hide();
                 ConfiguracionSalidaForm form = new ConfiguracionSalidaForm();
