@@ -19,7 +19,24 @@ namespace SistemaParqueoSalida
 
         private void entrar_btn_Click(object sender, EventArgs e)
         {
-            if(Password_txt.Text == Program.SuperUserPass)
+            SuperUserLogin();
+        }
+
+        private void salir_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void entrar_btn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SuperUserLogin();
+            }
+        }
+        public void SuperUserLogin()
+        {
+            if (Password_txt.Text == Program.SuperUserPass)
             {
                 this.Hide();
                 ConfiguracionSalidaForm form = new ConfiguracionSalidaForm();
@@ -29,11 +46,6 @@ namespace SistemaParqueoSalida
             {
                 MessageBox.Show("Acceso negado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void salir_btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

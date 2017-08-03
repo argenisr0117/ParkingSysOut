@@ -120,5 +120,14 @@ namespace SistemaParqueoSalida
             Properties.Settings.Default.Estacion = Program.EstacionNumero;
             Program.SuperUserPass = dt.Rows[0]["SuperUserPass"].ToString();
         }
+
+        public DataTable GetEstaciones()
+        {
+            DataTable dt = new DataTable();
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@entrada_salida", MentSal));
+            return dt = C.Listado("GET_ESTACIONES", lst);
+        }
+
     }
 }

@@ -194,7 +194,7 @@
             this.menúToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1111, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1020, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -483,7 +483,7 @@
             this.panel5.Controls.Add(this.panel3);
             this.panel5.Controls.Add(this.panel1);
             this.panel5.Controls.Add(this.panel2);
-            this.panel5.Location = new System.Drawing.Point(217, 107);
+            this.panel5.Location = new System.Drawing.Point(172, 107);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(722, 404);
             this.panel5.TabIndex = 5;
@@ -495,7 +495,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 24);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1111, 60);
+            this.panel6.Size = new System.Drawing.Size(1020, 60);
             this.panel6.TabIndex = 6;
             // 
             // estacionSalidaMainForm
@@ -503,7 +503,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1111, 514);
+            this.ClientSize = new System.Drawing.Size(1020, 514);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.menuStrip1);

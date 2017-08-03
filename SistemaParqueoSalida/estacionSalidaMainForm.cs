@@ -494,34 +494,45 @@ namespace SistemaParqueoSalida
             }
             else
             {
-                MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                e.Cancel = true;
+                if (Program.userLoggedIn)
+                {
+                    MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    e.Cancel = true;
+                }
+                    
             }
         }
 
         private void receso_btn_Click(object sender, EventArgs e)
         {
-            L.IdUsuario = Convert.ToInt16(Program.UserId);
-            L.Estacion = Program.EstacionNumero;
-            string mensaje = L.UserOnBreak();
-            if (mensaje == "1")
+            if (MessageBox.Show("¿Desea poner turno en receso?", "Sistema de Control de Parqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                Program.userLoggedIn = false;
-                this.Hide();
-                LoginForm form = new LoginForm();
-                form.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("No se pudo poner el turno en receso ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                L.IdUsuario = Convert.ToInt16(Program.UserId);
+                L.Estacion = Program.EstacionNumero;
+                string mensaje = L.UserOnBreak();
+                if (mensaje == "1")
+                {
+                    Program.userLoggedIn = false;
+                    this.Hide();
+                    LoginForm form = new LoginForm();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo poner el turno en receso ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
             }
+            
         }
 
         private void cerrarSesion_btn_Click(object sender, EventArgs e)
         {
-
-            CerrarSesion();
+            if (MessageBox.Show("¿Desea Cerrar Sesión? "+ "\n" +" NOTA: Esta acción cerrará el turno actual.", "Sistema de Control de Parqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                CerrarSesion();
+            }
+               
         }
 
         public void CerrarSesion()
@@ -535,6 +546,7 @@ namespace SistemaParqueoSalida
                 this.Hide();
                 LoginForm form = new LoginForm();
                 form.ShowDialog();
+                this.Close();
             }
             else
             {

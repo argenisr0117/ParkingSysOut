@@ -50,17 +50,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.saveSettings_btn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.estacionNombre_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
-            this.estacionNumero_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
-            this.adamIp_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.loadSetting_btn = new System.Windows.Forms.Button();
+            this.saveSettings_btn = new System.Windows.Forms.Button();
             this.adamPort_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.adamIp_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.estacionNumero_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.estacionNombre_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.estaciones_cb = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label11
@@ -264,6 +269,29 @@
             this.panel1.Size = new System.Drawing.Size(373, 98);
             this.panel1.TabIndex = 7;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // loadSetting_btn
+            // 
+            this.loadSetting_btn.BackColor = System.Drawing.SystemColors.Info;
+            this.loadSetting_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.loadSetting_btn.FlatAppearance.BorderSize = 2;
+            this.loadSetting_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
+            this.loadSetting_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadSetting_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadSetting_btn.Image = global::SistemaParqueoSalida.Properties.Resources.download_load_file_512;
+            this.loadSetting_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loadSetting_btn.Location = new System.Drawing.Point(194, 19);
+            this.loadSetting_btn.Name = "loadSetting_btn";
+            this.loadSetting_btn.Size = new System.Drawing.Size(121, 50);
+            this.loadSetting_btn.TabIndex = 13;
+            this.loadSetting_btn.Text = "CARGAR ";
+            this.loadSetting_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.loadSetting_btn.UseVisualStyleBackColor = false;
+            this.loadSetting_btn.Click += new System.EventHandler(this.loadSetting_btn_Click);
+            // 
             // saveSettings_btn
             // 
             this.saveSettings_btn.BackColor = System.Drawing.SystemColors.Info;
@@ -274,7 +302,7 @@
             this.saveSettings_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveSettings_btn.Image = global::SistemaParqueoSalida.Properties.Resources.save;
             this.saveSettings_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveSettings_btn.Location = new System.Drawing.Point(283, 279);
+            this.saveSettings_btn.Location = new System.Drawing.Point(536, 296);
             this.saveSettings_btn.Name = "saveSettings_btn";
             this.saveSettings_btn.Size = new System.Drawing.Size(132, 43);
             this.saveSettings_btn.TabIndex = 12;
@@ -282,37 +310,6 @@
             this.saveSettings_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveSettings_btn.UseVisualStyleBackColor = false;
             this.saveSettings_btn.Click += new System.EventHandler(this.saveSettings_btn_Click);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // estacionNombre_txt
-            // 
-            this.estacionNombre_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.estacionNombre_txt.Location = new System.Drawing.Point(127, 40);
-            this.estacionNombre_txt.Name = "estacionNombre_txt";
-            this.estacionNombre_txt.Size = new System.Drawing.Size(141, 20);
-            this.estacionNombre_txt.TabIndex = 7;
-            this.estacionNombre_txt.Validar = true;
-            // 
-            // estacionNumero_txt
-            // 
-            this.estacionNumero_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.estacionNumero_txt.Location = new System.Drawing.Point(127, 63);
-            this.estacionNumero_txt.Name = "estacionNumero_txt";
-            this.estacionNumero_txt.Size = new System.Drawing.Size(73, 20);
-            this.estacionNumero_txt.TabIndex = 8;
-            this.estacionNumero_txt.Validar = true;
-            // 
-            // adamIp_txt
-            // 
-            this.adamIp_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.adamIp_txt.Location = new System.Drawing.Point(34, 37);
-            this.adamIp_txt.Name = "adamIp_txt";
-            this.adamIp_txt.Size = new System.Drawing.Size(73, 20);
-            this.adamIp_txt.TabIndex = 13;
-            this.adamIp_txt.Validar = true;
             // 
             // adamPort_txt
             // 
@@ -323,12 +320,71 @@
             this.adamPort_txt.TabIndex = 14;
             this.adamPort_txt.Validar = true;
             // 
+            // adamIp_txt
+            // 
+            this.adamIp_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.adamIp_txt.Location = new System.Drawing.Point(34, 37);
+            this.adamIp_txt.Name = "adamIp_txt";
+            this.adamIp_txt.Size = new System.Drawing.Size(73, 20);
+            this.adamIp_txt.TabIndex = 13;
+            this.adamIp_txt.Validar = true;
+            // 
+            // estacionNumero_txt
+            // 
+            this.estacionNumero_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.estacionNumero_txt.Location = new System.Drawing.Point(127, 63);
+            this.estacionNumero_txt.Name = "estacionNumero_txt";
+            this.estacionNumero_txt.Size = new System.Drawing.Size(73, 20);
+            this.estacionNumero_txt.TabIndex = 8;
+            this.estacionNumero_txt.Validar = true;
+            // 
+            // estacionNombre_txt
+            // 
+            this.estacionNombre_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.estacionNombre_txt.Location = new System.Drawing.Point(127, 40);
+            this.estacionNombre_txt.Name = "estacionNombre_txt";
+            this.estacionNombre_txt.Size = new System.Drawing.Size(141, 20);
+            this.estacionNombre_txt.TabIndex = 7;
+            this.estacionNombre_txt.Validar = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.estaciones_cb);
+            this.groupBox1.Controls.Add(this.loadSetting_btn);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 272);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(335, 80);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "CARGAR CONFIGURACION";
+            // 
+            // estaciones_cb
+            // 
+            this.estaciones_cb.FormattingEnabled = true;
+            this.estaciones_cb.Location = new System.Drawing.Point(86, 33);
+            this.estaciones_cb.Name = "estaciones_cb";
+            this.estaciones_cb.Size = new System.Drawing.Size(44, 21);
+            this.estaciones_cb.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "ESTACION:";
+            // 
             // ConfiguracionSalidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(742, 334);
+            this.ClientSize = new System.Drawing.Size(742, 364);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.saveSettings_btn);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
@@ -347,6 +403,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -379,5 +437,9 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private Controles.textbox adamPort_txt;
         private Controles.textbox adamIp_txt;
+        private System.Windows.Forms.Button loadSetting_btn;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox estaciones_cb;
     }
 }

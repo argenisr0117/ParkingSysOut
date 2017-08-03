@@ -16,37 +16,37 @@ namespace SistemaParqueoSalida
 
         public void Conectar()
         {
-            try
-            {
+            //try
+            //{
                 if (conexion.State == ConnectionState.Closed)
                     conexion.Open();
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
 
         }
 
         public void Desconectar()
         {
-            try
-            {
+            //try
+            //{
                 if (conexion.State == ConnectionState.Open)
                     conexion.Close();
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
         }
 
         public DataTable Listado(String NombreSP, List<clsParametros> lst)
         {
             DataTable dt = new DataTable();
             SqlDataAdapter da;
-            try
-            {
+            //try
+            //{
                 Conectar();
                 da = new SqlDataAdapter(NombreSP, conexion);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -58,11 +58,11 @@ namespace SistemaParqueoSalida
                     }
                 }
                 da.Fill(dt);
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
             Desconectar();
             return dt;
         }
@@ -70,8 +70,8 @@ namespace SistemaParqueoSalida
         public void EjecutarSP(String NombreSP, ref List<clsParametros> lst)
         {
             SqlCommand cmd;
-            try
-            {
+            //try
+            //{
                 Conectar();
                 cmd = new SqlCommand(NombreSP, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -91,11 +91,11 @@ namespace SistemaParqueoSalida
                             lst[i].Valor = cmd.Parameters[i].Value;
                     }
                 }
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
             Desconectar();
         }
     }

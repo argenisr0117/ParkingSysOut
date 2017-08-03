@@ -121,6 +121,7 @@
             this.entrar_btn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.entrar_btn.UseVisualStyleBackColor = false;
             this.entrar_btn.Click += new System.EventHandler(this.entrar_btn_Click);
+            this.entrar_btn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.entrar_btn_KeyDown);
             // 
             // Password_txt
             // 

@@ -22,14 +22,19 @@ namespace SistemaParqueoSalida
         {
             if (Program.userLoggedIn)
             {
+                estaciones_cb.Enabled = false;
                 estacionNumero_txt.Enabled = false;
                 //baseDatosConexion_txt.Enabled = false;
             }
             else
             {
                 estacionNumero_txt.Enabled = true;
+
+                estaciones_cb.Enabled = true;
                 //baseDatosConexion_txt.Enabled = true;
             }
+
+            FillComboEstaciones();
             TopMost = true;
             DataTable dt = new DataTable();
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
@@ -136,11 +141,12 @@ namespace SistemaParqueoSalida
                 S.estacionNombre = Program.EstacionNombre;
                 S.estacionNumero = estacionNumero_txt.Text;
                 S.estacionAnterior = Program.EstacionNumero;
+                Program.EstacionNumero = estacionNumero_txt.Text;
                 Properties.Settings.Default.Estacion = Program.EstacionNumero;
                 bool mensaje = S.SaveSettings();
-                Program.EstacionNumero = estacionNumero_txt.Text;
-
                 
+
+                FillComboEstaciones();
                 Properties.Settings.Default.Save();
                 if (mensaje)
                 {
@@ -164,6 +170,49 @@ namespace SistemaParqueoSalida
             EntradasSalidasAdamForm form = new EntradasSalidasAdamForm();
             form.Show();
         }
+
+        private void loadSetting_btn_Click(object sender, EventArgs e)
+        {
+            Settings S = new Settings();
+            S.EntSal = "sal";
+            S.estacionNumero = estaciones_cb.Text;
+            S.GetSettings();
+
+            printerList_cb.Text = Program.defaultprinter;
+
+            byPassLoopSalida_chbox.Checked = Program.byPassLoopSalida;
+
+            byPassAdam_chbox.Checked = Program.byPassAdam;
+
+            adamIp_txt.Text = Program.AdamIp;
+            adamPort_txt.Text = Program.AdamPort.ToString();
+
+            estacionNombre_txt.Text = Program.EstacionNombre;
+            estacionNumero_txt.Text = Program.EstacionNumero;
+
+            baseDatosConexion_txt.Text = Properties.Settings.Default.Conexion;
+            Properties.Settings.Default.Estacion = Program.EstacionNumero;
+            
+            Properties.Settings.Default.Save();
+            MessageBox.Show("Configuración Cargada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void FillComboEstaciones()
+        {
+            S.EntSal = "sal";
+
+            try
+            {
+                estaciones_cb.DataSource = S.GetEstaciones();
+                estaciones_cb.DisplayMember = "EstacionNumero";
+                estaciones_cb.ValueMember = "EstacionNumero";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+    
     }
 
 }

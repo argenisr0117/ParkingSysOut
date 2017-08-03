@@ -16,7 +16,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Estacion" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">01</Value>
     </Setting>
   </Settings>
 </SettingsFile>

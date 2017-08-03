@@ -27,41 +27,59 @@ namespace SistemaParqueoSalida
 
         public void Login()
         {
-            L.Usuario = Usuario_txt.Text;
-            L.Clave = Utilidades.EncodePassword(Usuario_txt.Text + Password_txt.Text);
-            string[] mensaje = L.UserLogin();
-            if (mensaje[0] == "1")
+            try
             {
-                Program.userLoggedIn = true;
-                Program.UserId = mensaje[1].ToString();
-                Program.UserName = Usuario_txt.Text;
-                Properties.Settings.Default.userName = Program.UserName;
-                Properties.Settings.Default.Save();
-                PermisosUsuario P = new PermisosUsuario();
-                P.UserId = Convert.ToInt16(Program.UserId);
-                DataTable dt = new DataTable();
-                dt = P.GetPersmissions();
-                Program.TipoUsuario = dt.Rows[0]["descripcion"].ToString();
-                this.Hide();
-                estacionSalidaMainForm form = new estacionSalidaMainForm();
-                form.Show();
+                L.Usuario = Usuario_txt.Text;
+                L.Clave = Utilidades.EncodePassword(Usuario_txt.Text + Password_txt.Text);
+                string[] mensaje = L.UserLogin();
+                if (mensaje[0] == "1")
+                {
+                    Program.userLoggedIn = true;
+                    Program.UserId = mensaje[1].ToString();
+                    Program.UserName = Usuario_txt.Text;
+                    Properties.Settings.Default.userName = Program.UserName;
+                    Properties.Settings.Default.Save();
+                    PermisosUsuario P = new PermisosUsuario();
+                    P.UserId = Convert.ToInt16(Program.UserId);
+                    DataTable dt = new DataTable();
+                    dt = P.GetPersmissions();
+                    Program.TipoUsuario = dt.Rows[0]["descripcion"].ToString();
+                    this.Hide();
+                    estacionSalidaMainForm form = new estacionSalidaMainForm();
+                    form.ShowDialog();
+                    this.Dispose();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña no coinciden", "Sistema Parqueo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Usuario o contraseña no coinciden", "Sistema Parqueo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
+           
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            panel1.Location = new Point(this.ClientSize.Width / 2 - panel1.Size.Width / 2, this.ClientSize.Height / 2 - panel1.Size.Height / 2);
-            panel1.Anchor = AnchorStyles.None;
-            Settings S = new Settings();
-            S.EntSal = "sal";
-            S.estacionNumero = Properties.Settings.Default.Estacion;
-            S.GetSettings();
+            try
+            {
+                panel1.Location = new Point(this.ClientSize.Width / 2 - panel1.Size.Width / 2, this.ClientSize.Height / 2 - panel1.Size.Height / 2);
+                panel1.Anchor = AnchorStyles.None;
+                Settings S = new Settings();
+                S.EntSal = "sal";
+                S.estacionNumero = Properties.Settings.Default.Estacion;
+                S.GetSettings();
 
-            Usuario_txt.Text = Properties.Settings.Default.userName;
+                Usuario_txt.Text = Properties.Settings.Default.userName;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void salir_btn_Click(object sender, EventArgs e)
