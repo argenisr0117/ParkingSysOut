@@ -38,6 +38,7 @@
             this.lblDuracionTotal = new System.Windows.Forms.Label();
             this.Devuelta_txt = new SistemaParqueoSalida.Controles.textboxN(this.components);
             this.Efectivo_txt = new SistemaParqueoSalida.Controles.textboxN(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,12 +139,23 @@
             this.Efectivo_txt.Valor = SistemaParqueoSalida.Controles.textboxN.Tipo.Números;
             this.Efectivo_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Efectivo_txt_KeyDown);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(93, 184);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CobroAutomaticoPopUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(360, 200);
+            this.ClientSize = new System.Drawing.Size(360, 219);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Devuelta_txt);
             this.Controls.Add(this.Efectivo_txt);
             this.Controls.Add(this.panel1);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.Label lblDuracionTotal;
         private Controles.textboxN Efectivo_txt;
         private Controles.textboxN Devuelta_txt;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -45,27 +45,35 @@
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.adamPort_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.adamIp_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.printerList_cb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.estacionNumero_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.estacionNombre_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.loadSetting_btn = new System.Windows.Forms.Button();
             this.saveSettings_btn = new System.Windows.Forms.Button();
-            this.adamPort_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
-            this.adamIp_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
-            this.estacionNumero_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
-            this.estacionNombre_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.estaciones_cb = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.estaciones_cb = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.abrirBrazo_cb = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.loopSalida_cb = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label11
@@ -95,7 +103,7 @@
             this.EntradaSalida_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
             this.EntradaSalida_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EntradaSalida_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntradaSalida_button.Location = new System.Drawing.Point(264, 88);
+            this.EntradaSalida_button.Location = new System.Drawing.Point(261, 77);
             this.EntradaSalida_button.Name = "EntradaSalida_button";
             this.EntradaSalida_button.Size = new System.Drawing.Size(104, 54);
             this.EntradaSalida_button.TabIndex = 12;
@@ -106,7 +114,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 41);
+            this.label5.Location = new System.Drawing.Point(176, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 10;
@@ -155,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 41);
+            this.label4.Location = new System.Drawing.Point(2, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 8;
@@ -164,7 +172,7 @@
             // byPassAdam_chbox
             // 
             this.byPassAdam_chbox.AutoSize = true;
-            this.byPassAdam_chbox.Location = new System.Drawing.Point(182, 65);
+            this.byPassAdam_chbox.Location = new System.Drawing.Point(179, 54);
             this.byPassAdam_chbox.Name = "byPassAdam_chbox";
             this.byPassAdam_chbox.Size = new System.Drawing.Size(95, 17);
             this.byPassAdam_chbox.TabIndex = 7;
@@ -174,7 +182,7 @@
             // byPassLoopSalida_chbox
             // 
             this.byPassLoopSalida_chbox.AutoSize = true;
-            this.byPassLoopSalida_chbox.Location = new System.Drawing.Point(8, 65);
+            this.byPassLoopSalida_chbox.Location = new System.Drawing.Point(5, 54);
             this.byPassLoopSalida_chbox.Name = "byPassLoopSalida_chbox";
             this.byPassLoopSalida_chbox.Size = new System.Drawing.Size(134, 17);
             this.byPassLoopSalida_chbox.TabIndex = 5;
@@ -203,6 +211,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.adamPort_txt);
             this.panel2.Controls.Add(this.adamIp_txt);
             this.panel2.Controls.Add(this.EntradaSalida_button);
@@ -213,8 +223,26 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(353, 116);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(373, 150);
+            this.panel2.Size = new System.Drawing.Size(373, 236);
             this.panel2.TabIndex = 8;
+            // 
+            // adamPort_txt
+            // 
+            this.adamPort_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.adamPort_txt.Location = new System.Drawing.Point(240, 26);
+            this.adamPort_txt.Name = "adamPort_txt";
+            this.adamPort_txt.Size = new System.Drawing.Size(73, 20);
+            this.adamPort_txt.TabIndex = 14;
+            this.adamPort_txt.Validar = true;
+            // 
+            // adamIp_txt
+            // 
+            this.adamIp_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.adamIp_txt.Location = new System.Drawing.Point(31, 26);
+            this.adamIp_txt.Name = "adamIp_txt";
+            this.adamIp_txt.Size = new System.Drawing.Size(73, 20);
+            this.adamIp_txt.TabIndex = 13;
+            this.adamIp_txt.Validar = true;
             // 
             // label2
             // 
@@ -257,6 +285,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(335, 98);
             this.panel3.TabIndex = 10;
+            // 
+            // estacionNumero_txt
+            // 
+            this.estacionNumero_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.estacionNumero_txt.Location = new System.Drawing.Point(127, 63);
+            this.estacionNumero_txt.Name = "estacionNumero_txt";
+            this.estacionNumero_txt.Size = new System.Drawing.Size(73, 20);
+            this.estacionNumero_txt.TabIndex = 8;
+            this.estacionNumero_txt.Validar = true;
+            // 
+            // estacionNombre_txt
+            // 
+            this.estacionNombre_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.estacionNombre_txt.Location = new System.Drawing.Point(127, 40);
+            this.estacionNombre_txt.Name = "estacionNombre_txt";
+            this.estacionNombre_txt.Size = new System.Drawing.Size(141, 20);
+            this.estacionNombre_txt.TabIndex = 7;
+            this.estacionNombre_txt.Validar = true;
             // 
             // panel1
             // 
@@ -302,7 +348,7 @@
             this.saveSettings_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveSettings_btn.Image = global::SistemaParqueoSalida.Properties.Resources.save;
             this.saveSettings_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveSettings_btn.Location = new System.Drawing.Point(536, 296);
+            this.saveSettings_btn.Location = new System.Drawing.Point(299, 385);
             this.saveSettings_btn.Name = "saveSettings_btn";
             this.saveSettings_btn.Size = new System.Drawing.Size(132, 43);
             this.saveSettings_btn.TabIndex = 12;
@@ -310,42 +356,6 @@
             this.saveSettings_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveSettings_btn.UseVisualStyleBackColor = false;
             this.saveSettings_btn.Click += new System.EventHandler(this.saveSettings_btn_Click);
-            // 
-            // adamPort_txt
-            // 
-            this.adamPort_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.adamPort_txt.Location = new System.Drawing.Point(243, 37);
-            this.adamPort_txt.Name = "adamPort_txt";
-            this.adamPort_txt.Size = new System.Drawing.Size(73, 20);
-            this.adamPort_txt.TabIndex = 14;
-            this.adamPort_txt.Validar = true;
-            // 
-            // adamIp_txt
-            // 
-            this.adamIp_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.adamIp_txt.Location = new System.Drawing.Point(34, 37);
-            this.adamIp_txt.Name = "adamIp_txt";
-            this.adamIp_txt.Size = new System.Drawing.Size(73, 20);
-            this.adamIp_txt.TabIndex = 13;
-            this.adamIp_txt.Validar = true;
-            // 
-            // estacionNumero_txt
-            // 
-            this.estacionNumero_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.estacionNumero_txt.Location = new System.Drawing.Point(127, 63);
-            this.estacionNumero_txt.Name = "estacionNumero_txt";
-            this.estacionNumero_txt.Size = new System.Drawing.Size(73, 20);
-            this.estacionNumero_txt.TabIndex = 8;
-            this.estacionNumero_txt.Validar = true;
-            // 
-            // estacionNombre_txt
-            // 
-            this.estacionNombre_txt.BackColor = System.Drawing.SystemColors.Info;
-            this.estacionNombre_txt.Location = new System.Drawing.Point(127, 40);
-            this.estacionNombre_txt.Name = "estacionNombre_txt";
-            this.estacionNombre_txt.Size = new System.Drawing.Size(141, 20);
-            this.estacionNombre_txt.TabIndex = 7;
-            this.estacionNombre_txt.Validar = true;
             // 
             // groupBox1
             // 
@@ -360,14 +370,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CARGAR CONFIGURACION";
             // 
-            // estaciones_cb
-            // 
-            this.estaciones_cb.FormattingEnabled = true;
-            this.estaciones_cb.Location = new System.Drawing.Point(86, 33);
-            this.estaciones_cb.Name = "estaciones_cb";
-            this.estaciones_cb.Size = new System.Drawing.Size(44, 21);
-            this.estaciones_cb.TabIndex = 14;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -378,12 +380,94 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "ESTACION:";
             // 
+            // estaciones_cb
+            // 
+            this.estaciones_cb.FormattingEnabled = true;
+            this.estaciones_cb.Location = new System.Drawing.Point(86, 33);
+            this.estaciones_cb.Name = "estaciones_cb";
+            this.estaciones_cb.Size = new System.Drawing.Size(44, 21);
+            this.estaciones_cb.TabIndex = 14;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.abrirBrazo_cb);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(194, 137);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(174, 94);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SALIDAS";
+            // 
+            // abrirBrazo_cb
+            // 
+            this.abrirBrazo_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.abrirBrazo_cb.FormattingEnabled = true;
+            this.abrirBrazo_cb.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.abrirBrazo_cb.Location = new System.Drawing.Point(85, 41);
+            this.abrirBrazo_cb.Name = "abrirBrazo_cb";
+            this.abrirBrazo_cb.Size = new System.Drawing.Size(37, 21);
+            this.abrirBrazo_cb.TabIndex = 21;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 44);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Abrir Brazo:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.loopSalida_cb);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(8, 137);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(174, 94);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ENTRADAS";
+            // 
+            // loopSalida_cb
+            // 
+            this.loopSalida_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.loopSalida_cb.FormattingEnabled = true;
+            this.loopSalida_cb.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.loopSalida_cb.Location = new System.Drawing.Point(105, 43);
+            this.loopSalida_cb.Name = "loopSalida_cb";
+            this.loopSalida_cb.Size = new System.Drawing.Size(37, 21);
+            this.loopSalida_cb.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 46);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Loop Salida:";
+            // 
             // ConfiguracionSalidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(742, 364);
+            this.ClientSize = new System.Drawing.Size(742, 438);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.saveSettings_btn);
             this.Controls.Add(this.panel4);
@@ -405,6 +489,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -441,5 +529,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox estaciones_cb;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox abrirBrazo_cb;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox loopSalida_cb;
+        private System.Windows.Forms.Label label9;
     }
 }

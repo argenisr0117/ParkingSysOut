@@ -56,6 +56,8 @@ namespace SistemaParqueoSalida
 
             baseDatosConexion_txt.Text = Properties.Settings.Default.Conexion;
             configuracionesToolTip.SetToolTip(labelBaseDatos, "Usar Siguiente Formato: Data Source=IPMACHINE;Initial Catalog=NOMBREBD;User ID=NOMBREUSER;Password=PASSWOORDBD;Encrypt=False;Column Encryption Setting=Disabled");
+            loopSalida_cb.Text = Program.LoopSalidaInput;
+            abrirBrazo_cb.Text = Program.AbrirBrazoOutput;
 
             if (Program.adamOnline)
             {
@@ -128,9 +130,12 @@ namespace SistemaParqueoSalida
                 {
                     Program.byPassAdam = false;
                 }
+
                 Program.AdamIp = adamIp_txt.Text;
                 Program.AdamPort = Convert.ToInt16(adamPort_txt.Text);
                 Program.EstacionNombre = estacionNombre_txt.Text;
+                Program.LoopSalidaInput = loopSalida_cb.Text ;
+                Program.AbrirBrazoOutput = abrirBrazo_cb.Text;
                 S.EntSal = "sal";
                 S.defaultprinter = Program.defaultprinter;
                 S.byPassloop = Program.byPassLoopSalida;
@@ -141,6 +146,11 @@ namespace SistemaParqueoSalida
                 S.estacionNombre = Program.EstacionNombre;
                 S.estacionNumero = estacionNumero_txt.Text;
                 S.estacionAnterior = Program.EstacionNumero;
+                S.InputLoopBrazo =""; // Parametro Para estacion entrada
+                S.InputLoop = Program.LoopSalidaInput;
+                S.InputPushButton = ""; // Parametro Para estacion entrada
+                S.byPassPaperPresenter = false; //Parametro Para estacion entrada
+                S.OutputAbrirBrazo = Program.AbrirBrazoOutput;
                 Program.EstacionNumero = estacionNumero_txt.Text;
                 Properties.Settings.Default.Estacion = Program.EstacionNumero;
                 bool mensaje = S.SaveSettings();
@@ -189,6 +199,9 @@ namespace SistemaParqueoSalida
 
             estacionNombre_txt.Text = Program.EstacionNombre;
             estacionNumero_txt.Text = Program.EstacionNumero;
+
+            abrirBrazo_cb.Text = Program.AbrirBrazoOutput;
+            loopSalida_cb.Text = Program.LoopSalidaInput;
 
             baseDatosConexion_txt.Text = Properties.Settings.Default.Conexion;
             Properties.Settings.Default.Estacion = Program.EstacionNumero;

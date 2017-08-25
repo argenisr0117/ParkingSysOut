@@ -96,12 +96,15 @@ namespace SistemaParqueoSalida
         public string CheckIfUserOnBreak()
         {
             string mensaje = "";
+
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@userId", MidUsuario));
             lst.Add(new clsParametros("@estacion", Mestacion));
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            lst.Add(new clsParametros("@idturno", "", SqlDbType.Int, ParameterDirection.Output, 50));
             C.EjecutarSP("GET_IF_USER_ON_BREAK", ref lst);
             mensaje = lst[2].Valor.ToString();
+            Program.Idlog = Convert.ToInt32(lst[3].Valor);
             return mensaje;
         }
 

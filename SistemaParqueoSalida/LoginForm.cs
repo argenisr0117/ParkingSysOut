@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-
+using System.Management;
 
 namespace SistemaParqueoSalida
 {
@@ -64,8 +64,10 @@ namespace SistemaParqueoSalida
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            
             try
             {
+                timer1.Enabled = true;
                 panel1.Location = new Point(this.ClientSize.Width / 2 - panel1.Size.Width / 2, this.ClientSize.Height / 2 - panel1.Size.Height / 2);
                 panel1.Anchor = AnchorStyles.None;
                 Settings S = new Settings();
@@ -78,8 +80,8 @@ namespace SistemaParqueoSalida
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-           
+            }           
+
         }
 
         private void salir_btn_Click(object sender, EventArgs e)
@@ -99,6 +101,39 @@ namespace SistemaParqueoSalida
         {
             SuperUserLoginForm form = new SuperUserLoginForm();
             form.ShowDialog();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Program.adamOnline = Program.adam_func.connectAdam(Program.adam6060, Program.AdamIp, Convert.ToInt16(Program.AdamPort));
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync(); // read adam
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Program.adam_func.AdamInputRead(Program.adam6060);
+            Program.adam_func.AdamOutputRead(Program.adam6060);
+        }
+
+        
+
+        private void LoginForm_Shown(object sender, EventArgs e)
+        {
+            Settings S = new Settings();
+            bool mensaje = S.CheckIfSoftwareActivated();
+            if (!mensaje)
+            {
+                MessageBox.Show("Este sistema no ha sido activado por los Administradores" + "\n" + "Nota: Software se cerrará al clickear OK o al cerrar esta ventana", "Sistema de Parqueo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try { this.Close(); }
+                catch { }
+            }
         }
     }
 }

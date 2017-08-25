@@ -133,6 +133,7 @@
             this.Password_txt.Size = new System.Drawing.Size(186, 24);
             this.Password_txt.TabIndex = 11;
             this.Password_txt.UseSystemPasswordChar = true;
+            this.Password_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Password_txt_KeyDown);
             // 
             // Usuario_txt
             // 

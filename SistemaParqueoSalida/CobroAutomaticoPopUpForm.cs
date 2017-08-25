@@ -133,9 +133,16 @@ namespace SistemaParqueoSalida
             u.barcode = barcode;
             u.monto = monto;
             u.tiempo = tiempo;
-            u.idUsuario = idUsuario;
+            u.idUsuario =Convert.ToInt16(Program.UserId);
             u.estacionSal = Program.EstacionNumero;
+            u.Idlog = Program.Idlog;
             u.UpdateTicketToDB();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Dispose();
+            Close();
         }
     }
 }

@@ -14,6 +14,9 @@ namespace SistemaParqueoSalida
     {
         //SETTINGS
 
+        public static string LoopSalidaInput;
+        public static string AbrirBrazoOutput;
+
         public static string defaultprinter;
         public static bool byPassLoopSalida;
         public static bool byPassAdam;
@@ -33,6 +36,7 @@ namespace SistemaParqueoSalida
         public static int Evento;
         public static int id = 0;
 
+        public static int Idlog=0;
 
         public static bool printerPrinting;
         public static bool printerBusy;

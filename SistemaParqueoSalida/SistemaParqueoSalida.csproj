@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdamDevice.cs" />
+    <Compile Include="ChooseInputOuputAdam.cs" />
     <Compile Include="clsParametros.cs" />
     <Compile Include="CobroAutomaticoPopUpForm.cs">
       <SubType>Form</SubType>
@@ -110,6 +111,7 @@
     <Compile Include="estacionSalidaMainForm.Designer.cs">
       <DependentUpon>estacionSalidaMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdmSettings.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +123,12 @@
     <Compile Include="PrinterStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroUsuario.Designer.cs">
+      <DependentUpon>RegistroUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="StatusEntrada.cs" />
     <Compile Include="SuperUserLoginForm.cs">
@@ -135,7 +143,15 @@
     <Compile Include="TicketManualForm.Designer.cs">
       <DependentUpon>TicketManualForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TicketPerdidoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketPerdidoForm.Designer.cs">
+      <DependentUpon>TicketPerdidoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario.cs" />
     <Compile Include="UpdateTicket.cs" />
+    <Compile Include="Usuario.cs" />
     <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="CobroAutomaticoPopUpForm.resx">
       <DependentUpon>CobroAutomaticoPopUpForm.cs</DependentUpon>
@@ -165,11 +181,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RegistroUsuario.resx">
+      <DependentUpon>RegistroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SuperUserLoginForm.resx">
       <DependentUpon>SuperUserLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TicketManualForm.resx">
       <DependentUpon>TicketManualForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketPerdidoForm.resx">
+      <DependentUpon>TicketPerdidoForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -219,6 +241,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download-load-file-512.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar_usuario.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bt_pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences %282%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sale.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

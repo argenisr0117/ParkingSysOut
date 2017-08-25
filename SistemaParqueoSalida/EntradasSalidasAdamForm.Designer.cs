@@ -38,6 +38,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.output5Adam_pic = new System.Windows.Forms.PictureBox();
+            this.output4Adam_pic = new System.Windows.Forms.PictureBox();
+            this.output3Adam_pic = new System.Windows.Forms.PictureBox();
+            this.output2Adam_pic = new System.Windows.Forms.PictureBox();
             this.output6Adam_pic = new System.Windows.Forms.PictureBox();
             this.output1Adam_pic = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,11 +59,11 @@
             this.input1Adam_pic = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.output2Adam_pic = new System.Windows.Forms.PictureBox();
-            this.output3Adam_pic = new System.Windows.Forms.PictureBox();
-            this.output4Adam_pic = new System.Windows.Forms.PictureBox();
-            this.output5Adam_pic = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.output5Adam_pic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output4Adam_pic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output3Adam_pic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output2Adam_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.output6Adam_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.output1Adam_pic)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,10 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.input3Adam_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input2Adam_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input1Adam_pic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output2Adam_pic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output3Adam_pic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output4Adam_pic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output5Adam_pic)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -159,6 +159,46 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 329);
             this.panel2.TabIndex = 11;
+            // 
+            // output5Adam_pic
+            // 
+            this.output5Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
+            this.output5Adam_pic.Location = new System.Drawing.Point(20, 239);
+            this.output5Adam_pic.Name = "output5Adam_pic";
+            this.output5Adam_pic.Size = new System.Drawing.Size(35, 35);
+            this.output5Adam_pic.TabIndex = 22;
+            this.output5Adam_pic.TabStop = false;
+            this.output5Adam_pic.Click += new System.EventHandler(this.output5Adam_pic_Click);
+            // 
+            // output4Adam_pic
+            // 
+            this.output4Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
+            this.output4Adam_pic.Location = new System.Drawing.Point(20, 195);
+            this.output4Adam_pic.Name = "output4Adam_pic";
+            this.output4Adam_pic.Size = new System.Drawing.Size(35, 35);
+            this.output4Adam_pic.TabIndex = 21;
+            this.output4Adam_pic.TabStop = false;
+            this.output4Adam_pic.Click += new System.EventHandler(this.output4Adam_pic_Click);
+            // 
+            // output3Adam_pic
+            // 
+            this.output3Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
+            this.output3Adam_pic.Location = new System.Drawing.Point(20, 145);
+            this.output3Adam_pic.Name = "output3Adam_pic";
+            this.output3Adam_pic.Size = new System.Drawing.Size(35, 35);
+            this.output3Adam_pic.TabIndex = 20;
+            this.output3Adam_pic.TabStop = false;
+            this.output3Adam_pic.Click += new System.EventHandler(this.output3Adam_pic_Click);
+            // 
+            // output2Adam_pic
+            // 
+            this.output2Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
+            this.output2Adam_pic.Location = new System.Drawing.Point(20, 94);
+            this.output2Adam_pic.Name = "output2Adam_pic";
+            this.output2Adam_pic.Size = new System.Drawing.Size(35, 35);
+            this.output2Adam_pic.TabIndex = 19;
+            this.output2Adam_pic.TabStop = false;
+            this.output2Adam_pic.Click += new System.EventHandler(this.output2Adam_pic_Click_1);
             // 
             // output6Adam_pic
             // 
@@ -324,46 +364,6 @@
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // output2Adam_pic
-            // 
-            this.output2Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
-            this.output2Adam_pic.Location = new System.Drawing.Point(20, 94);
-            this.output2Adam_pic.Name = "output2Adam_pic";
-            this.output2Adam_pic.Size = new System.Drawing.Size(35, 35);
-            this.output2Adam_pic.TabIndex = 19;
-            this.output2Adam_pic.TabStop = false;
-            this.output2Adam_pic.Click += new System.EventHandler(this.output2Adam_pic_Click_1);
-            // 
-            // output3Adam_pic
-            // 
-            this.output3Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
-            this.output3Adam_pic.Location = new System.Drawing.Point(20, 145);
-            this.output3Adam_pic.Name = "output3Adam_pic";
-            this.output3Adam_pic.Size = new System.Drawing.Size(35, 35);
-            this.output3Adam_pic.TabIndex = 20;
-            this.output3Adam_pic.TabStop = false;
-            this.output3Adam_pic.Click += new System.EventHandler(this.output3Adam_pic_Click);
-            // 
-            // output4Adam_pic
-            // 
-            this.output4Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
-            this.output4Adam_pic.Location = new System.Drawing.Point(20, 195);
-            this.output4Adam_pic.Name = "output4Adam_pic";
-            this.output4Adam_pic.Size = new System.Drawing.Size(35, 35);
-            this.output4Adam_pic.TabIndex = 21;
-            this.output4Adam_pic.TabStop = false;
-            this.output4Adam_pic.Click += new System.EventHandler(this.output4Adam_pic_Click);
-            // 
-            // output5Adam_pic
-            // 
-            this.output5Adam_pic.Image = global::SistemaParqueoSalida.Properties.Resources.circle_error;
-            this.output5Adam_pic.Location = new System.Drawing.Point(20, 239);
-            this.output5Adam_pic.Name = "output5Adam_pic";
-            this.output5Adam_pic.Size = new System.Drawing.Size(35, 35);
-            this.output5Adam_pic.TabIndex = 22;
-            this.output5Adam_pic.TabStop = false;
-            this.output5Adam_pic.Click += new System.EventHandler(this.output5Adam_pic_Click);
-            // 
             // EntradasSalidasAdamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,9 +377,14 @@
             this.Name = "EntradasSalidasAdamForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MONITOREO ENTRADAS & SALIDAS ADAM";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.EntradasSalidasAdamForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.output5Adam_pic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output4Adam_pic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output3Adam_pic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.output2Adam_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.output6Adam_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.output1Adam_pic)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -390,10 +395,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.input3Adam_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.input2Adam_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.input1Adam_pic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output2Adam_pic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output3Adam_pic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output4Adam_pic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.output5Adam_pic)).EndInit();
             this.ResumeLayout(false);
 
         }

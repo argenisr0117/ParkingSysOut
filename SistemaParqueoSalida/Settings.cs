@@ -16,13 +16,18 @@ namespace SistemaParqueoSalida
         bool MbyPassLoop;
         bool MbyPassBrazo;
         bool MbyPassAdam;
+        bool MbyPassPapelPresenter;
         string MadamIp;
         int MadamPort;
         string MestacionNombre;
         string MestacionNumero;
         string MestacionAnterior;
+        string MinputLoop;
+        string MinputPushButton;
+        string MinputLoopBrazo;
+        string MoutputAbrirBrazo;
 
-       
+
 
         public string EntSal
         {
@@ -82,13 +87,43 @@ namespace SistemaParqueoSalida
             set { MestacionAnterior = value; }
         }
 
+        public string InputLoop
+        {
+            get { return MinputLoop; }
+            set { MinputLoop = value; }
+        }
+
+        public string InputPushButton
+        {
+            get { return MinputPushButton; }
+            set { MinputPushButton = value; }
+        }
+
+        public string InputLoopBrazo
+        {
+            get { return MinputLoopBrazo; }
+            set { MinputLoopBrazo = value; }
+        }
+
+        public string OutputAbrirBrazo
+        {
+            get { return MoutputAbrirBrazo; }
+            set { MoutputAbrirBrazo = value; }
+        }
+
+        public bool byPassPaperPresenter
+        {
+            get { return MbyPassPapelPresenter; }
+            set { MbyPassPapelPresenter = value; }
+        }
+
 
         public bool SaveSettings()
         {
-            
+
             List<clsParametros> lst = new List<clsParametros>();
             lst.Add(new clsParametros("@mensaje", "", SqlDbType.Bit, ParameterDirection.Output, 50));
-            lst.Add(new clsParametros("@entrada_salida",MentSal));
+            lst.Add(new clsParametros("@entrada_salida", MentSal));
             lst.Add(new clsParametros("@defaultPrinter", MdefaultPrinter));
             lst.Add(new clsParametros("@bypassAdam", MbyPassAdam));
             lst.Add(new clsParametros("@byPassLoop", MbyPassLoop));
@@ -98,7 +133,12 @@ namespace SistemaParqueoSalida
             lst.Add(new clsParametros("@estacionNombre", MestacionNombre));
             lst.Add(new clsParametros("@estacionNumero", MestacionNumero));
             lst.Add(new clsParametros("@estacionAnterior", MestacionAnterior));
-            
+            lst.Add(new clsParametros("@inputLoop", MinputLoop));
+            lst.Add(new clsParametros("@inputPushButton", MinputPushButton));
+            lst.Add(new clsParametros("@inputLoopBrazo", MinputLoopBrazo));
+            lst.Add(new clsParametros("@outputAbrirBrazo", MoutputAbrirBrazo));
+            lst.Add(new clsParametros("@byPassPaperPresenter", MbyPassPapelPresenter));
+
             C.EjecutarSP("SAVE_SETTINGS", ref lst);
             bool mensaje = Convert.ToBoolean(lst[0].Valor);
             return mensaje;
@@ -119,6 +159,8 @@ namespace SistemaParqueoSalida
             Program.EstacionNumero = dt.Rows[0]["EstacionNumero"].ToString();
             Properties.Settings.Default.Estacion = Program.EstacionNumero;
             Program.SuperUserPass = dt.Rows[0]["SuperUserPass"].ToString();
+            Program.LoopSalidaInput = dt.Rows[0]["InputLoopSalida"].ToString();
+            Program.AbrirBrazoOutput = dt.Rows[0]["OutputAbrirBrazo"].ToString();
         }
 
         public DataTable GetEstaciones()
@@ -128,6 +170,18 @@ namespace SistemaParqueoSalida
             lst.Add(new clsParametros("@entrada_salida", MentSal));
             return dt = C.Listado("GET_ESTACIONES", lst);
         }
+
+        public bool CheckIfSoftwareActivated()
+        {
+            bool mensaje;
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@mensaje", "", SqlDbType.Bit, ParameterDirection.Output, 50));
+            C.EjecutarSP("GET_IF_SOFTWARE_ACTIVATED", ref lst);
+            mensaje = Convert.ToBoolean(lst[0].Valor);
+            return mensaje;
+        }
+
+        
 
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
 
 namespace SistemaParqueoSalida
 {
@@ -21,6 +22,7 @@ namespace SistemaParqueoSalida
         private void TicketManualForm_Load(object sender, EventArgs e)
         {
             //SendKeys.Send("{TAB}");
+            this.Size = new Size(460, 140);
             Program.Evento = 0;
             fechaEntrada_dtp.Focus();
             lblDuracionTotal.Text = "0Hr 0Min";
@@ -37,6 +39,8 @@ namespace SistemaParqueoSalida
             {
                 CalculateTicketPrice();
             }
+            Devuelta_txt.Text = "";
+            
             
         }
 
@@ -46,6 +50,9 @@ namespace SistemaParqueoSalida
             {
                 CalculateTicketPrice();
             }
+
+            Devuelta_txt.Text = "";
+            
         }
 
         public void CalculateTicketPrice()
@@ -126,6 +133,8 @@ namespace SistemaParqueoSalida
                     {
                         Devuelta_txt.Text = (Convert.ToDouble(Efectivo_txt.Text) - Convert.ToDouble(txtTotalPagar.Text)).ToString("N2");
                         Devuelta_txt.Focus();
+                        
+                        
                     }
                 }
             }
@@ -134,5 +143,40 @@ namespace SistemaParqueoSalida
                 MessageBox.Show(ex.Message, "Sistema de Parqueo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void fechaActual_dtp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                this.Size = new Size(460, 420);
+                fechaEntrada_dtp.Enabled = false;
+                fechaActual_dtp.Enabled = false;
+                panel2.Visible = true;
+                CalculateTicketPrice();
+                Efectivo_txt.Focus();
+
+            }
+
+        }
+
+        private void fechaEntrada_dtp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                this.Size = new Size(460,420);
+                fechaEntrada_dtp.Enabled = false;
+                fechaActual_dtp.Enabled = false;
+                panel2.Visible = true;
+                CalculateTicketPrice();
+                Efectivo_txt.Focus();
+            }
+        }
+
+        private void cancelarTransaccion_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

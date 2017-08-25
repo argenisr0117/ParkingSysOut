@@ -13,10 +13,9 @@ namespace SistemaParqueoSalida
 {
     public partial class estacionSalidaMainForm : Form
     {
-        
         public string adamip = Program.AdamIp;
         public int adamport =  Program.AdamPort ;
-
+        ChooseInputOuputAdam IO = new ChooseInputOuputAdam();
         PrinterStatus printer = new PrinterStatus();
         UpdateTicket U = new UpdateTicket();
         Login L = new Login();
@@ -56,10 +55,10 @@ namespace SistemaParqueoSalida
 
                 }
 
-                else if (Convert.ToBoolean(dt.Rows[0]["printerPrinting"]))
+                else if (Convert.ToBoolean(dt.Rows[0]["printerError"]))
                 {
-                    statusPrinter_entrada_pic.Image = Properties.Resources.circle_ok;
-                    toolTip1.SetToolTip(statusPrinter_entrada_pic, "Imprimiendo Ticket");
+                    statusPrinter_entrada_pic.Image = Properties.Resources.circle_error;
+                    toolTip1.SetToolTip(statusPrinter_entrada_pic, "Error En Printer");
 
                 }
                 else
@@ -137,9 +136,7 @@ namespace SistemaParqueoSalida
             readStatusEntrada_timer.Enabled = true;
             readStatusEntrada_timer_Tick(1, e);
             readStatusSalida_timer.Enabled = true;
-            readStatusSalida_timer_Tick(1, e);
-           
-          
+            readStatusSalida_timer_Tick(1, e);          
 
         }
 
@@ -152,16 +149,16 @@ namespace SistemaParqueoSalida
                 string mensaje = L.CheckIfUserOnBreak();
                 if (mensaje == "1")
                 {
-                    DialogResult dialogResult = MessageBox.Show("Existe un turno abierto. Desea Continuarlo?", "Sistema Parqueo", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        MessageBox.Show("Turno Continuado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        CerrarSesionAfterLogin();
+                    DialogResult dialogResult = MessageBox.Show("Existe un turno abierto", "Sistema Parqueo", MessageBoxButtons.OK);
+                    
+                    
+                    MessageBox.Show("Turno Continuado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    //else if (dialogResult == DialogResult.No)
+                    //{
+                    //    CerrarSesionAfterLogin();
 
-                    }
+                    //}
                 }
             }
             catch (Exception ex)
@@ -293,50 +290,55 @@ namespace SistemaParqueoSalida
 
         private void txtLecturaTicket_TextChanged(object sender, EventArgs e)
         {
-            string barcodetxt = txtLecturaTicket.Text;
-            try
+            if(IO.CheckInputLoopSalida() || Program.byPassLoopSalida)
             {
-                string mensaje = "";
-                if (barcodetxt.Length == 14)
+                string barcodetxt = txtLecturaTicket.Text;
+                try
                 {
-                    key = 0;                    
-                    CobroAutomaticoPopUpForm form = new CobroAutomaticoPopUpForm();
-                    U.barcode = txtLecturaTicket.Text.Trim();
-                    mensaje = U.CheckTicket();
-                    if (mensaje == "1")
+                    string mensaje = "";
+                    if (barcodetxt.Length == 14)
                     {
-                        form.barcode = txtLecturaTicket.Text;
-                        form.ShowDialog();
+                        key = 0;
+
+                        U.barcode = txtLecturaTicket.Text.Trim();
+                        mensaje = U.CheckTicket();
+                        if (mensaje == "1")
+                        {
+
+                            timer1.Enabled = true;
+                        }
+                        else
+                        {
+                            disableEnter_timer.Enabled = true;
+                            txtLecturaTicket.Clear();
+                            txtLecturaTicket.Focus();
+                            ////*********identificar si se presiono ENTER o no//////
+                            //if (key == 1)
+                            //{
+
+                            //    MessageBox.Show("Ticket no existe", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //    txtLecturaTicket.Clear();
+                            //    txtLecturaTicket.Focus();
+                            //    key = 0;
+
+                            //}
+                            //else if (key == 0)
+                            //{
+                            //    MessageBox.Show("Ticket no existe", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //    txtLecturaTicket.Clear();
+                            //    txtLecturaTicket.Focus();
+                            //}
+                        }
+
                     }
-                    else
-                    {
-                        disableEnter_timer.Enabled = true;
-                        txtLecturaTicket.Clear();
-                        txtLecturaTicket.Focus();
-                        ////*********identificar si se presiono ENTER o no//////
-                        //if (key == 1)
-                        //{
-
-                        //    MessageBox.Show("Ticket no existe", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    txtLecturaTicket.Clear();
-                        //    txtLecturaTicket.Focus();
-                        //    key = 0;
-
-                        //}
-                        //else if (key == 0)
-                        //{
-                        //    MessageBox.Show("Ticket no existe", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    txtLecturaTicket.Clear();
-                        //    txtLecturaTicket.Focus();
-                        //}
-                    }
-
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            
 
         }
 
@@ -390,46 +392,58 @@ namespace SistemaParqueoSalida
 
         private void btnTicketM_Click(object sender, EventArgs e)
         {
-            PermisosUsuario P = new PermisosUsuario();
-            DataTable dt = new DataTable();
-            P.UserId = Convert.ToInt16(Program.UserId);
-            dt = P.GetPersmissions();
-
-            if (Convert.ToBoolean(dt.Rows[0]["btn_sal_ticketm"]))
-            {
-                TicketManualForm form = new TicketManualForm();
-                form.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
-        }
-
-        private void btnTicketP_Click(object sender, EventArgs e)
-        {
-            try
+            if (IO.CheckInputLoopSalida() || Program.byPassLoopSalida)
             {
                 PermisosUsuario P = new PermisosUsuario();
                 DataTable dt = new DataTable();
                 P.UserId = Convert.ToInt16(Program.UserId);
                 dt = P.GetPersmissions();
 
-                if (Convert.ToBoolean(dt.Rows[0]["btn_sal_ticketp"]))
+                if (Convert.ToBoolean(dt.Rows[0]["btn_sal_ticketm"]))
                 {
-
+                    TicketManualForm form = new TicketManualForm();
+                    form.ShowDialog();
                 }
                 else
                 {
                     MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
 
-            }
-            catch(Exception ex)
+           
+            
+        }
+
+        private void btnTicketP_Click(object sender, EventArgs e)
+        {
+
+            if (IO.CheckInputLoopSalida() || Program.byPassLoopSalida)
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    PermisosUsuario P = new PermisosUsuario();
+                    DataTable dt = new DataTable();
+                    P.UserId = Convert.ToInt16(Program.UserId);
+                    dt = P.GetPersmissions();
+
+                    if (Convert.ToBoolean(dt.Rows[0]["btn_sal_ticketp"]))
+                    {
+                        TicketPerdidoForm form = new TicketPerdidoForm();
+                        form.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
+            
 
 
         }
@@ -445,7 +459,8 @@ namespace SistemaParqueoSalida
 
                 if (Convert.ToBoolean(dt.Rows[0]["agregar_usuario"]))
                 {
-
+                    RegistroUsuario form = new RegistroUsuario();
+                    form.ShowDialog();
                 }
                 else
                 {
@@ -477,29 +492,39 @@ namespace SistemaParqueoSalida
 
         private void estacionSalidaMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PermisosUsuario P = new PermisosUsuario();
-            DataTable dt = new DataTable();
-            P.UserId = Convert.ToInt16(Program.UserId);
-            dt = P.GetPersmissions();
+            if (Program.userLoggedIn)
+            {
 
-            if (Convert.ToBoolean(dt.Rows[0]["menu_sal_salir"]))
-            {
-                if (MessageBox.Show("¿Desea Salir?", "Sistema de Control de Parqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            
+                PermisosUsuario P = new PermisosUsuario();
+                DataTable dt = new DataTable();
+                P.UserId = Convert.ToInt16(Program.UserId);
+                dt = P.GetPersmissions();
+
+                if (Convert.ToBoolean(dt.Rows[0]["menu_sal_salir"]))
                 {
-                    CerrarSesion();
+                    if (MessageBox.Show("¿Desea Salir?", "Sistema de Control de Parqueo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
                     
-                    this.Dispose();
-                    this.Close();
+                        CerrarSesion();
+                        this.Close();
+
+
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
                 }
-            }
-            else
-            {
-                if (Program.userLoggedIn)
+                else
                 {
-                    MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    e.Cancel = true;
-                }
+                    if (Program.userLoggedIn)
+                    {
+                        MessageBox.Show("Usuario no tiene permiso", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        e.Cancel = true;
+                    }
                     
+                }
             }
         }
 
@@ -561,16 +586,21 @@ namespace SistemaParqueoSalida
             {
                 usuario_lbl.Text = Program.UserName + " - " + Program.UserId;
                 tipoUsuario_lbl.Text = Program.TipoUsuario;
-                readStatusEntrada_timer.Enabled = true;
-                readStatusEntrada_timer_Tick(1, e);
-                readStatusSalida_timer.Enabled = true;
-                readStatusSalida_timer_Tick(1, e);
                 getIfUserOnBreak();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CobroAutomaticoPopUpForm form = new CobroAutomaticoPopUpForm();
+            timer1.Enabled = false;
+            form.barcode = txtLecturaTicket.Text;
+            form.ShowDialog();
 
         }
     }

@@ -18,6 +18,9 @@ namespace SistemaParqueoSalida
         float Mtiempo;
         int MidUsuario;
         string MestacionSal;
+        string Mnombre;
+        string Mcedula;
+        int Midlog;
 
         public DateTime fechaSalida
         {
@@ -54,10 +57,26 @@ namespace SistemaParqueoSalida
             set { MidUsuario = value; }
         }
 
+        public int Idlog
+        {
+            get { return Midlog; }
+            set { Midlog = value; }
+        }
+
         public string estacionSal
         {
             get { return MestacionSal; }
             set { MestacionSal = value; }
+        }
+        public string Nombre
+        {
+            get { return Mnombre; }
+            set { Mnombre = value; }
+        }
+        public string Cedula
+        {
+            get { return Mcedula; }
+            set { Mcedula = value; }
         }
         public void UpdateTicketToDB()
         {
@@ -70,9 +89,26 @@ namespace SistemaParqueoSalida
             lst.Add(new clsParametros("@tiempo", Mtiempo));
             lst.Add(new clsParametros("@idusuario", MidUsuario));
             lst.Add(new clsParametros("@estacion", MestacionSal));
+            lst.Add(new clsParametros("@idlog", Midlog));
 
             //lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
             C.EjecutarSP("UPD_TICKET", ref lst);
+            //mensaje = lst[2].Valor.ToString();
+            //return mensaje;
+        }
+        public void RegLostTicket()
+        {
+            //string mensaje = "";
+            List<clsParametros> lst = new List<clsParametros>();
+            lst.Add(new clsParametros("@nombre", Mnombre));
+            lst.Add(new clsParametros("@cedula", Mcedula));
+            lst.Add(new clsParametros("@monto", Mmonto));
+            lst.Add(new clsParametros("@iduser", MidUsuario));
+            lst.Add(new clsParametros("@estacion", MestacionSal));
+            lst.Add(new clsParametros("@idturno", Midlog));
+
+            //lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
+            C.EjecutarSP("REG_LOST_TICKET", ref lst);
             //mensaje = lst[2].Valor.ToString();
             //return mensaje;
         }

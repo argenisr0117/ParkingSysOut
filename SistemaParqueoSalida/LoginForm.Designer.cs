@@ -42,6 +42,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mENUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cONFIGURACIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -55,7 +57,7 @@
             this.Usuario_txt.Location = new System.Drawing.Point(80, 88);
             this.Usuario_txt.Multiline = true;
             this.Usuario_txt.Name = "Usuario_txt";
-            this.Usuario_txt.Size = new System.Drawing.Size(186, 34);
+            this.Usuario_txt.Size = new System.Drawing.Size(186, 24);
             this.Usuario_txt.TabIndex = 0;
             this.toolTip1.SetToolTip(this.Usuario_txt, "USUARIO");
             // 
@@ -63,7 +65,7 @@
             // 
             this.Password_txt.BackColor = System.Drawing.SystemColors.Info;
             this.Password_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password_txt.Location = new System.Drawing.Point(80, 138);
+            this.Password_txt.Location = new System.Drawing.Point(80, 133);
             this.Password_txt.Name = "Password_txt";
             this.Password_txt.Size = new System.Drawing.Size(186, 24);
             this.Password_txt.TabIndex = 1;
@@ -106,7 +108,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaParqueoSalida.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 88);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 83);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -197,6 +199,16 @@
             this.cONFIGURACIONToolStripMenuItem.Text = "CONFIGURACION";
             this.cONFIGURACIONToolStripMenuItem.Click += new System.EventHandler(this.cONFIGURACIONToolStripMenuItem_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +226,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -240,5 +253,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mENUToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cONFIGURACIONToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

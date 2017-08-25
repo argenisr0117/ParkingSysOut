@@ -47,5 +47,13 @@ namespace SistemaParqueoSalida
                 MessageBox.Show("Acceso negado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void Password_txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SuperUserLogin();
+            }
+        }
     }
 }
