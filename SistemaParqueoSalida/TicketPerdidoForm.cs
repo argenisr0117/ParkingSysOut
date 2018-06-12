@@ -45,6 +45,7 @@ namespace SistemaParqueoSalida
                         U.Cedula = Cedula_txt.Text;
                         U.monto =float.Parse(ticketPerdido_txt.Text);
                         U.estacionSal = Program.EstacionNumero;
+                        U.Placa = Placa_txt.Text;
                         U.RegLostTicket();
                     }
                 }
@@ -59,6 +60,7 @@ namespace SistemaParqueoSalida
         {
             Cedula_txt.Clear();
             Nombre_txt.Clear();
+            Placa_txt.Clear();
         }
         public void LoadSettings()
         {

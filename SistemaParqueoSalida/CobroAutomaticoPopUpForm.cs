@@ -125,7 +125,7 @@ namespace SistemaParqueoSalida
             
         }
 
-        private void ActualizarTicket(DateTime fechasal, DateTime horasal, string barcode, float monto, float tiempo, int idUsuario)
+        private void ActualizarTicket(DateTime fechasal, DateTime horasal, string barcode, float monto, int tiempo, int idUsuario)
         {
             UpdateTicket u = new UpdateTicket( );
             u.fechaSalida = fechasal;

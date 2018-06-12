@@ -15,11 +15,12 @@ namespace SistemaParqueoSalida
         DateTime MhoraSalida;
         string Mbarcode;
         float Mmonto;
-        float Mtiempo;
+        int Mtiempo;
         int MidUsuario;
         string MestacionSal;
         string Mnombre;
         string Mcedula;
+        string Mplaca;
         int Midlog;
 
         public DateTime fechaSalida
@@ -45,7 +46,7 @@ namespace SistemaParqueoSalida
             set { Mmonto = value; }
         }
 
-        public float tiempo
+        public int tiempo
         {
             get { return Mtiempo; }
             set { Mtiempo = value; }
@@ -78,6 +79,11 @@ namespace SistemaParqueoSalida
             get { return Mcedula; }
             set { Mcedula = value; }
         }
+        public string Placa
+        {
+            get { return Mplaca; }
+            set { Mplaca = value; }
+        }
         public void UpdateTicketToDB()
         {
             //string mensaje = "";
@@ -106,7 +112,7 @@ namespace SistemaParqueoSalida
             lst.Add(new clsParametros("@iduser", MidUsuario));
             lst.Add(new clsParametros("@estacion", MestacionSal));
             lst.Add(new clsParametros("@idturno", Midlog));
-
+            lst.Add(new clsParametros("@placa", Mplaca));
             //lst.Add(new clsParametros("@mensaje", "", SqlDbType.VarChar, ParameterDirection.Output, 50));
             C.EjecutarSP("REG_LOST_TICKET", ref lst);
             //mensaje = lst[2].Valor.ToString();

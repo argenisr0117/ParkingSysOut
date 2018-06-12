@@ -41,6 +41,8 @@
             this.ticketPerdido_txt = new SistemaParqueoSalida.Controles.textboxN(this.components);
             this.Devuelta_txt = new SistemaParqueoSalida.Controles.textboxN(this.components);
             this.Efectivo_txt = new SistemaParqueoSalida.Controles.textboxN(this.components);
+            this.Placa_txt = new SistemaParqueoSalida.Controles.textbox(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 236);
+            this.label4.Location = new System.Drawing.Point(12, 279);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 16);
             this.label4.TabIndex = 11;
@@ -88,7 +90,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 193);
+            this.label5.Location = new System.Drawing.Point(12, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 16);
             this.label5.TabIndex = 10;
@@ -147,7 +149,7 @@
             this.Devuelta_txt.BackColor = System.Drawing.SystemColors.Info;
             this.Devuelta_txt.Enabled = false;
             this.Devuelta_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Devuelta_txt.Location = new System.Drawing.Point(181, 226);
+            this.Devuelta_txt.Location = new System.Drawing.Point(181, 269);
             this.Devuelta_txt.Multiline = true;
             this.Devuelta_txt.Name = "Devuelta_txt";
             this.Devuelta_txt.ReadOnly = true;
@@ -159,20 +161,43 @@
             // 
             this.Efectivo_txt.BackColor = System.Drawing.SystemColors.Info;
             this.Efectivo_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Efectivo_txt.Location = new System.Drawing.Point(181, 183);
+            this.Efectivo_txt.Location = new System.Drawing.Point(181, 226);
             this.Efectivo_txt.Multiline = true;
             this.Efectivo_txt.Name = "Efectivo_txt";
             this.Efectivo_txt.Size = new System.Drawing.Size(170, 37);
-            this.Efectivo_txt.TabIndex = 2;
+            this.Efectivo_txt.TabIndex = 3;
             this.Efectivo_txt.Valor = SistemaParqueoSalida.Controles.textboxN.Tipo.Números;
             this.Efectivo_txt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Efectivo_txt_KeyDown);
+            // 
+            // Placa_txt
+            // 
+            this.Placa_txt.BackColor = System.Drawing.SystemColors.Info;
+            this.Placa_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Placa_txt.Location = new System.Drawing.Point(128, 183);
+            this.Placa_txt.Multiline = true;
+            this.Placa_txt.Name = "Placa_txt";
+            this.Placa_txt.Size = new System.Drawing.Size(223, 37);
+            this.Placa_txt.TabIndex = 2;
+            this.Placa_txt.Validar = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 193);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "PLACA:";
             // 
             // TicketPerdidoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(363, 314);
+            this.ClientSize = new System.Drawing.Size(363, 340);
+            this.Controls.Add(this.Placa_txt);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.Cedula_txt);
             this.Controls.Add(this.Nombre_txt);
             this.Controls.Add(this.label6);
@@ -210,5 +235,7 @@
         private Controles.textbox Nombre_txt;
         private Controles.textbox Cedula_txt;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Controles.textbox Placa_txt;
+        private System.Windows.Forms.Label label7;
     }
 }
